@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import goldenRetrieverIcon from "@/assets/golden-retriever-icon.png";
 
 interface PetProfileProps {
   name: string;
@@ -23,9 +24,9 @@ export const PetProfile = ({
     <Card className="p-6 bg-card/50 backdrop-blur-sm border border-border/50 shadow-[--shadow-card]">
       <div className="flex items-center gap-4">
         <Avatar className="w-16 h-16 ring-2 ring-primary/20">
-          <AvatarImage src={avatarUrl} alt={name} />
+          <AvatarImage src={avatarUrl || goldenRetrieverIcon} alt={name} />
           <AvatarFallback className="text-lg font-semibold bg-gradient-to-br from-primary/10 to-accent/10">
-            {name.charAt(0)}
+            <img src={goldenRetrieverIcon} alt="Golden Retriever" className="w-8 h-8" />
           </AvatarFallback>
         </Avatar>
         
