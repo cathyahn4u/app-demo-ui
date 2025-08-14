@@ -38,13 +38,13 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
   const Icon = painInfo.icon;
   
   return (
-    <Card className="p-6 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 shadow-[--shadow-card]">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-foreground">Pain Analysis</h3>
+    <Card className="p-4 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 shadow-[--shadow-card]">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-base font-semibold text-foreground">Pain Analysis</h3>
         <Badge 
           variant="outline" 
           className={cn(
-            "border-current",
+            "border-current text-xs",
             `text-${painInfo.color} border-${painInfo.color}/30`
           )}
         >
@@ -52,34 +52,36 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
         </Badge>
       </div>
       
-      <div className="text-center mb-6">
+      <div className="flex items-center gap-4 mb-4">
         <div className={cn(
-          "inline-flex items-center justify-center w-20 h-20 rounded-full mb-3",
+          "flex items-center justify-center w-12 h-12 rounded-full",
           `bg-${painInfo.color}/10 text-${painInfo.color}`
         )}>
-          <Icon className="w-8 h-8" />
+          <Icon className="w-5 h-5" />
         </div>
         
-        <div className="text-3xl font-bold mb-1 text-foreground">
-          {painLevel}%
+        <div className="flex-1">
+          <div className="text-2xl font-bold text-foreground">
+            {painLevel}%
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Pain Probability
+          </p>
         </div>
-        <p className="text-sm text-muted-foreground">
-          Pain Probability
-        </p>
       </div>
       
-      <div className="space-y-4">
+      <div className="space-y-3">
         <Progress 
           value={painLevel} 
           className={cn(
-            "h-3",
+            "h-2",
             `[&>div]:bg-gradient-to-r [&>div]:from-${painInfo.color} [&>div]:to-${painInfo.color}/80`
           )}
         />
         
-        <div className="bg-muted/30 rounded-lg p-3">
+        <div className="bg-muted/30 rounded-lg p-2">
           <p className="text-xs text-muted-foreground mb-1">Assessment</p>
-          <p className="text-sm text-foreground leading-relaxed">
+          <p className="text-xs text-foreground leading-relaxed">
             {painInfo.description}
           </p>
         </div>
