@@ -18,7 +18,6 @@ const Index = () => {
   const emotionData = [
     { emotion: 'happy' as const, confidence: 85, isActive: true },
     { emotion: 'calm' as const, confidence: 72, isActive: false },
-    { emotion: 'playful' as const, confidence: 68, isActive: false },
     { emotion: 'anxious' as const, confidence: 15, isActive: false },
     { emotion: 'sad' as const, confidence: 8, isActive: false },
   ];
@@ -66,7 +65,7 @@ const Index = () => {
               <Heart className="w-5 h-5 text-primary" />
               <h2 className="text-xl font-semibold text-foreground">Emotion Analysis</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {emotionData.map((emotion) => (
                 <EmotionCard
                   key={emotion.emotion}

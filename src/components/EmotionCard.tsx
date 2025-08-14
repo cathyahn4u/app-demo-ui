@@ -1,10 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
-import { Heart, Frown, Zap, Waves, Play } from "lucide-react";
+import { Heart, Frown, Zap, Waves } from "lucide-react";
 
 interface EmotionCardProps {
-  emotion: 'happy' | 'sad' | 'anxious' | 'calm' | 'playful';
+  emotion: 'happy' | 'sad' | 'anxious' | 'calm';
   confidence: number;
   isActive?: boolean;
 }
@@ -33,12 +33,6 @@ const emotionConfig = {
     label: 'Calm',
     color: 'calm',
     description: 'Your pet is relaxed and peaceful'
-  },
-  playful: {
-    icon: Play,
-    label: 'Playful',
-    color: 'playful',
-    description: 'Your pet is energetic and ready to play'
   }
 };
 
