@@ -3,11 +3,20 @@ import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { Button } from "@/components/ui/button";
-import { Activity, Brain, Heart, Scan } from "lucide-react";
+import { Activity, Brain, Heart, Scan, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  const handleAnalyze = () => {
+    setIsAnalyzing(true);
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      setShowAnalysis(true);
+    }, 1500); // 1.5 second delay
+  };
   
   // Mock data for demonstration
   const petData = {
@@ -56,17 +65,28 @@ const Index = () => {
           <PetProfile {...petData} />
         </div>
 
-        {/* Analyze Button */}
-        {!showAnalysis && (
+        {/* Analyze Button or Analyzing State */}
+        {!showAnalysis && !isAnalyzing && (
           <div className="text-center mb-8">
             <Button 
-              onClick={() => setShowAnalysis(true)}
+              onClick={handleAnalyze}
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg"
             >
               <Scan className="w-5 h-5 mr-2" />
               Analyze Now
             </Button>
+          </div>
+        )}
+
+        {/* Analyzing State */}
+        {isAnalyzing && (
+          <div className="text-center mb-8">
+            <div className="flex flex-col items-center gap-4">
+              <Loader2 className="w-12 h-12 text-primary animate-spin" />
+              <div className="text-lg font-semibold text-foreground">Analyzing your pet...</div>
+              <div className="text-sm text-muted-foreground">Processing emotional patterns and pain indicators</div>
+            </div>
           </div>
         )}
 
