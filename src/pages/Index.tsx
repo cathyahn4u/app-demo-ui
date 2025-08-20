@@ -48,12 +48,11 @@ const Index = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10">
-              <Brain className="w-8 h-8 text-primary" />
-            </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Pet Emotion & Pain Analysis
-            </h1>
+            <img 
+              src="/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png" 
+              alt="PetLepathy Logo" 
+              className="h-16 w-auto"
+            />
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Advanced AI-powered analysis to understand your pet's emotional state and detect signs of discomfort
