@@ -2,9 +2,13 @@ import { PetProfile } from "@/components/PetProfile";
 import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
-import { Activity, Brain, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Activity, Brain, Heart, Scan } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
+  const [showAnalysis, setShowAnalysis] = useState(false);
+  
   // Mock data for demonstration
   const petData = {
     name: "Buddy",
@@ -52,63 +56,81 @@ const Index = () => {
           <PetProfile {...petData} />
         </div>
 
+        {/* Analyze Button */}
+        {!showAnalysis && (
+          <div className="text-center mb-8">
+            <Button 
+              onClick={() => setShowAnalysis(true)}
+              size="lg"
+              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg"
+            >
+              <Scan className="w-5 h-5 mr-2" />
+              Analyze Now
+            </Button>
+          </div>
+        )}
+
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {/* Pain Analysis - Takes prominent position */}
-          <div className="lg:col-span-1">
-            <PainGauge painLevel={12} lastUpdated="2 hours ago" />
-          </div>
+        {showAnalysis && (
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              {/* Pain Analysis - Takes prominent position */}
+              <div className="lg:col-span-1">
+                <PainGauge painLevel={12} lastUpdated="2 hours ago" />
+              </div>
 
-          {/* Emotion Grid */}
-          <div className="lg:col-span-2">
-            <div className="mb-4 flex items-center gap-2">
-              <Heart className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-semibold text-foreground">Emotion Analysis</h2>
+              {/* Emotion Grid */}
+              <div className="lg:col-span-2">
+                <div className="mb-4 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl font-semibold text-foreground">Emotion Analysis</h2>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {emotionData.map((emotion) => (
+                    <EmotionCard
+                      key={emotion.emotion}
+                      emotion={emotion.emotion}
+                      confidence={emotion.confidence}
+                      isActive={emotion.isActive}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {emotionData.map((emotion) => (
-                <EmotionCard
-                  key={emotion.emotion}
-                  emotion={emotion.emotion}
-                  confidence={emotion.confidence}
-                  isActive={emotion.isActive}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Recent Analysis */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RecentAnalysis entries={recentAnalysisData} />
-          
-          {/* Quick Stats */}
-          <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
-            <div className="flex items-center gap-2 mb-4">
-              <Activity className="w-5 h-5 text-primary" />
-              <h3 className="text-lg font-semibold text-foreground">Today's Summary</h3>
+            {/* Recent Analysis */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <RecentAnalysis entries={recentAnalysisData} />
+              
+              {/* Quick Stats */}
+              <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
+                <div className="flex items-center gap-2 mb-4">
+                  <Activity className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">Today's Summary</h3>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-happy">95%</div>
+                    <div className="text-sm text-muted-foreground">Positive Emotions</div>
+                  </div>
+                  <div className="text-center p-4 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-pain-low">8</div>
+                    <div className="text-sm text-muted-foreground">Analyses Today</div>
+                  </div>
+                  <div className="text-center p-4 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">4.2</div>
+                    <div className="text-sm text-muted-foreground">Avg Wellness Score</div>
+                  </div>
+                  <div className="text-center p-4 bg-muted/20 rounded-lg">
+                    <div className="text-2xl font-bold text-accent">12%</div>
+                    <div className="text-sm text-muted-foreground">Avg Pain Level</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-muted/20 rounded-lg">
-                <div className="text-2xl font-bold text-happy">95%</div>
-                <div className="text-sm text-muted-foreground">Positive Emotions</div>
-              </div>
-              <div className="text-center p-4 bg-muted/20 rounded-lg">
-                <div className="text-2xl font-bold text-pain-low">8</div>
-                <div className="text-sm text-muted-foreground">Analyses Today</div>
-              </div>
-              <div className="text-center p-4 bg-muted/20 rounded-lg">
-                <div className="text-2xl font-bold text-primary">4.2</div>
-                <div className="text-sm text-muted-foreground">Avg Wellness Score</div>
-              </div>
-              <div className="text-center p-4 bg-muted/20 rounded-lg">
-                <div className="text-2xl font-bold text-accent">12%</div>
-                <div className="text-sm text-muted-foreground">Avg Pain Level</div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
