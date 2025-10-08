@@ -3,8 +3,9 @@ import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { Button } from "@/components/ui/button";
-import { Activity, Brain, Heart, Scan, Loader2 } from "lucide-react";
+import { Activity, Heart, Scan, Loader2 } from "lucide-react";
 import { useState } from "react";
+import logoIcon from "@/assets/logo_icon.png";
 
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
@@ -49,7 +50,7 @@ const Index = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <img 
-              src="/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png" 
+              src={logoIcon} 
               alt="PetLepathy Logo" 
               className="h-16 w-auto"
             />
