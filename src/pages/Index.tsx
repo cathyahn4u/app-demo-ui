@@ -3,8 +3,9 @@ import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { Button } from "@/components/ui/button";
-import { Activity, Heart, Scan, Loader2 } from "lucide-react";
+import { Activity, Heart, Scan, Loader2, Smartphone } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logoIcon from "@/assets/logo_icon.png";
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
@@ -148,6 +149,20 @@ const Index = () => {
               </div>
             </div>
           </>}
+
+        {/* Lockscreen Button */}
+        <div className="text-center mt-12">
+          <Link to="/lockscreen">
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="bg-gradient-to-r from-primary/10 to-accent/10 backdrop-blur-sm border-primary/30 hover:border-primary/60 hover:bg-primary/20"
+            >
+              <Smartphone className="w-5 h-5 mr-2" />
+              View Pet Lockscreen
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>;
 };
