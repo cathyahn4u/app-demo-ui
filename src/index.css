@@ -8,41 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 97%;
-    --foreground: 220 15% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
-    --primary: 260 75% 65%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 260 75% 80%;
-    --secondary: 200 70% 60%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 20% 92%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 320 65% 65%;
-    --accent-foreground: 0 0% 100%;
+    /* Dark mode theme with custom colors */
+    --background: 222 84% 5%;
+    --foreground: 220 100% 87%;
+
+    --card: 222 84% 6%;
+    --card-foreground: 220 100% 87%;
+
+    --popover: 222 84% 6%;
+    --popover-foreground: 220 100% 87%;
+
+    /* Custom color scheme */
+    --primary: 237 85% 73%;
+    --primary-foreground: 222 84% 5%;
+    --primary-glow: 220 100% 80%;
+
+    --secondary: 222 32% 18%;
+    --secondary-foreground: 220 100% 87%;
+
+    --muted: 222 32% 15%;
+    --muted-foreground: 220 100% 80%;
+
+    --accent: 175 89% 83%;
+    --accent-foreground: 222 84% 5%;
+
+    /* Emotion colors */
+    --happy: 120 65% 55%;
+    --sad: 220 70% 60%;
+    --anxious: 38 92% 65%;
+    --calm: 160 50% 50%;
+    --playful: 280 70% 65%;
+
+    /* Pain levels */
+    --pain-low: 120 65% 55%;
+    --pain-medium: 38 92% 65%;
+    --pain-high: 0 75% 60%;
+
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 260 75% 65%;
-    --radius: 1rem;
-    
-    /* Pet emotion colors */
-    --happy: 45 95% 60%;
-    --calm: 200 70% 60%;
-    --anxious: 35 90% 55%;
-    --sad: 220 40% 50%;
-    --playful: 280 70% 65%;
-    --pain-low: 120 50% 50%;
-    --pain-medium: 40 95% 55%;
-    --pain-high: 0 75% 60%;
-    
-    /* Glassmorphism shadows */
-    --shadow-card: 0 4px 24px -1px hsl(220 25% 15% / 0.08);
-    --shadow-soft: 0 2px 12px -2px hsl(220 25% 35% / 0.12);
+
+    --border: 222 32% 20%;
+    --input: 222 32% 20%;
+    --ring: 237 85% 73%;
+
+    /* Beautiful gradients with custom colors */
+    --gradient-primary: linear-gradient(135deg, hsl(237 85% 73%), hsl(175 89% 83%));
+    --gradient-emotion: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-card: linear-gradient(145deg, hsl(222 84% 6% / 0.9), hsl(222 32% 15% / 0.8));
+
+    /* Elegant shadows for dark theme */
+    --shadow-card: 0 4px 20px -2px hsl(222 84% 2% / 0.3);
+    --shadow-emotion: 0 8px 30px -8px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -62,40 +81,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 220 15% 95%;
-    --card: 220 20% 12%;
-    --card-foreground: 220 15% 95%;
-    --popover: 220 20% 12%;
-    --popover-foreground: 220 15% 95%;
-    --primary: 260 75% 70%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 260 75% 85%;
-    --secondary: 200 70% 65%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 320 65% 70%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 75% 65%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 260 75% 70%;
-    
-    /* Pet emotion colors - dark mode */
-    --happy: 45 95% 65%;
-    --calm: 200 70% 65%;
-    --anxious: 35 90% 60%;
-    --sad: 220 40% 60%;
-    --playful: 280 70% 70%;
-    --pain-low: 120 50% 55%;
-    --pain-medium: 40 95% 60%;
-    --pain-high: 0 75% 65%;
-    
-    /* Glassmorphism - dark mode */
-    --shadow-card: 0 4px 24px -1px hsl(220 25% 0% / 0.25);
-    --shadow-soft: 0 2px 12px -2px hsl(220 25% 0% / 0.35);
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
