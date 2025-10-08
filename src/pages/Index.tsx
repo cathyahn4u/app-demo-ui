@@ -6,11 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Activity, Heart, Scan, Loader2 } from "lucide-react";
 import { useState } from "react";
 import logoIcon from "@/assets/logo_icon.png";
-
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-
   const handleAnalyze = () => {
     setIsAnalyzing(true);
     setTimeout(() => {
@@ -18,7 +16,7 @@ const Index = () => {
       setShowAnalysis(true);
     }, 1500); // 1.5 second delay
   };
-  
+
   // Mock data for demonstration
   const petData = {
     name: "Buddy",
@@ -28,36 +26,52 @@ const Index = () => {
     lastCheckup: "March 15, 2024",
     avatarUrl: undefined
   };
-
-  const emotionData = [
-    { emotion: 'happy' as const, confidence: 85, isActive: true },
-    { emotion: 'calm' as const, confidence: 72, isActive: false },
-    { emotion: 'anxious' as const, confidence: 15, isActive: false },
-    { emotion: 'sad' as const, confidence: 8, isActive: false },
-  ];
-
-  const recentAnalysisData = [
-    { timestamp: "2 hours ago", dominantEmotion: "Happy", painLevel: 12, trend: 'stable' as const },
-    { timestamp: "5 hours ago", dominantEmotion: "Playful", painLevel: 8, trend: 'down' as const },
-    { timestamp: "8 hours ago", dominantEmotion: "Calm", painLevel: 15, trend: 'up' as const },
-    { timestamp: "12 hours ago", dominantEmotion: "Happy", painLevel: 10, trend: 'stable' as const },
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90">
+  const emotionData = [{
+    emotion: 'happy' as const,
+    confidence: 85,
+    isActive: true
+  }, {
+    emotion: 'calm' as const,
+    confidence: 72,
+    isActive: false
+  }, {
+    emotion: 'anxious' as const,
+    confidence: 15,
+    isActive: false
+  }, {
+    emotion: 'sad' as const,
+    confidence: 8,
+    isActive: false
+  }];
+  const recentAnalysisData = [{
+    timestamp: "2 hours ago",
+    dominantEmotion: "Happy",
+    painLevel: 12,
+    trend: 'stable' as const
+  }, {
+    timestamp: "5 hours ago",
+    dominantEmotion: "Playful",
+    painLevel: 8,
+    trend: 'down' as const
+  }, {
+    timestamp: "8 hours ago",
+    dominantEmotion: "Calm",
+    painLevel: 15,
+    trend: 'up' as const
+  }, {
+    timestamp: "12 hours ago",
+    dominantEmotion: "Happy",
+    painLevel: 10,
+    trend: 'stable' as const
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <img 
-              src={logoIcon} 
-              alt="PetLepathy Logo" 
-              className="h-16 w-auto"
-            />
+            <img src={logoIcon} alt="PetLepathy Logo" className="h-16 w-auto" />
           </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Advanced AI-powered analysis to understand your pet's emotional state and detect signs of discomfort
-          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Advanced AI-powered analysis to understand your pet's emotional state and detect pain.</p>
         </div>
 
         {/* Pet Profile */}
@@ -66,33 +80,24 @@ const Index = () => {
         </div>
 
         {/* Analyze Button or Analyzing State */}
-        {!showAnalysis && !isAnalyzing && (
-          <div className="text-center mb-8">
-            <Button 
-              onClick={handleAnalyze}
-              size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg"
-            >
+        {!showAnalysis && !isAnalyzing && <div className="text-center mb-8">
+            <Button onClick={handleAnalyze} size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-lg">
               <Scan className="w-5 h-5 mr-2" />
               Analyze Now
             </Button>
-          </div>
-        )}
+          </div>}
 
         {/* Analyzing State */}
-        {isAnalyzing && (
-          <div className="text-center mb-8">
+        {isAnalyzing && <div className="text-center mb-8">
             <div className="flex flex-col items-center gap-4">
               <Loader2 className="w-12 h-12 text-primary animate-spin" />
               <div className="text-lg font-semibold text-foreground">Analyzing your pet...</div>
               <div className="text-sm text-muted-foreground">Processing emotional patterns and pain indicators</div>
             </div>
-          </div>
-        )}
+          </div>}
 
         {/* Main Dashboard Grid */}
-        {showAnalysis && (
-          <>
+        {showAnalysis && <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               {/* Pain Analysis - Takes prominent position */}
               <div className="lg:col-span-1">
@@ -106,14 +111,7 @@ const Index = () => {
                   <h2 className="text-xl font-semibold text-foreground">Emotion Analysis</h2>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {emotionData.map((emotion) => (
-                    <EmotionCard
-                      key={emotion.emotion}
-                      emotion={emotion.emotion}
-                      confidence={emotion.confidence}
-                      isActive={emotion.isActive}
-                    />
-                  ))}
+                  {emotionData.map(emotion => <EmotionCard key={emotion.emotion} emotion={emotion.emotion} confidence={emotion.confidence} isActive={emotion.isActive} />)}
                 </div>
               </div>
             </div>
@@ -149,11 +147,8 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          </>
-        )}
+          </>}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
