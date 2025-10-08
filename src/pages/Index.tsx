@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Activity, Heart, Scan, Loader2 } from "lucide-react";
 import { useState } from "react";
 import logoIcon from "@/assets/logo_icon.png";
+import buddyAnimated from "@/assets/buddy-animated.png";
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -72,6 +73,15 @@ const Index = () => {
             <img src={logoIcon} alt="PetLepathy Logo" className="h-16 w-auto" />
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">Advanced AI-powered analysis to understand your pet's emotional state and detect pain.</p>
+        </div>
+
+        {/* Animated Buddy */}
+        <div className="flex justify-center mb-8">
+          <img 
+            src={buddyAnimated} 
+            alt="Buddy the Golden Retriever" 
+            className="w-64 h-64 object-contain animate-fade-in hover:scale-105 transition-transform duration-300"
+          />
         </div>
 
         {/* Pet Profile */}
