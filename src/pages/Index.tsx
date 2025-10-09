@@ -2,6 +2,7 @@ import { PetProfile } from "@/components/PetProfile";
 import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
+import { PetInstagram } from "@/components/PetInstagram";
 import { Button } from "@/components/ui/button";
 import { Activity, Heart, Scan, Loader2, Smartphone } from "lucide-react";
 import { useState } from "react";
@@ -64,6 +65,32 @@ const Index = () => {
     dominantEmotion: "Happy",
     painLevel: 10,
     trend: 'stable' as const
+  }];
+
+  const instagramPosts = [{
+    id: 1,
+    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
+    caption: "Happy playtime in the park! 🎾",
+    likes: 127,
+    timestamp: "3 hours ago"
+  }, {
+    id: 2,
+    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
+    caption: "Afternoon nap after a long walk 😴",
+    likes: 98,
+    timestamp: "6 hours ago"
+  }, {
+    id: 3,
+    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
+    caption: "Enjoying the sunshine ☀️",
+    likes: 156,
+    timestamp: "1 day ago"
+  }, {
+    id: 4,
+    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
+    caption: "Best day ever at the beach! 🏖️",
+    likes: 203,
+    timestamp: "2 days ago"
   }];
   return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -147,6 +174,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Pet Instagram */}
+            <div className="mt-6">
+              <PetInstagram posts={instagramPosts} />
             </div>
           </>}
 
