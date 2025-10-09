@@ -86,7 +86,7 @@ const Index = () => {
     timestamp: "5 hours ago",
     username: "@maxthepup",
     emoji: "🐶",
-    healthLevel: 92,
+    healthLevel: 88,
     emotionalState: "Playful",
     emotionEmoji: "🤗"
   }, {
@@ -108,20 +108,20 @@ const Index = () => {
     timestamp: "1 day ago",
     username: "@lunathelab",
     emoji: "🐕",
-    healthLevel: 94,
+    healthLevel: 92,
     emotionalState: "Peaceful",
     emotionEmoji: "😌"
   }, {
     id: 5,
     imageUrl: "/pet-photos/black-kitten.jpeg",
-    caption: "My feline friend stopping by for cuddles 🐱💕",
+    caption: "Not feeling my best today, but still sending love 💕",
     likes: 234,
     timestamp: "2 days ago",
     username: "@midnightkitty",
     emoji: "🐈‍⬛",
-    healthLevel: 88,
-    emotionalState: "Affectionate",
-    emotionEmoji: "🥰"
+    healthLevel: 62,
+    emotionalState: "Unwell",
+    emotionEmoji: "😔"
   }, {
     id: 6,
     imageUrl: "/pet-photos/black-cat.jpeg",
@@ -130,7 +130,7 @@ const Index = () => {
     timestamp: "2 days ago",
     username: "@shadowthecat",
     emoji: "😺",
-    healthLevel: 90,
+    healthLevel: 85,
     emotionalState: "Curious",
     emotionEmoji: "🤔"
   }, {
@@ -141,7 +141,7 @@ const Index = () => {
     timestamp: "3 days ago",
     username: "@whiskerspurr",
     emoji: "🐱",
-    healthLevel: 91,
+    healthLevel: 78,
     emotionalState: "Confident",
     emotionEmoji: "😎"
   }, {
@@ -152,7 +152,7 @@ const Index = () => {
     timestamp: "3 days ago",
     username: "@sillysocks",
     emoji: "😹",
-    healthLevel: 93,
+    healthLevel: 94,
     emotionalState: "Mischievous",
     emotionEmoji: "😼"
   }, {
@@ -163,7 +163,7 @@ const Index = () => {
     timestamp: "4 days ago",
     username: "@professorpaws",
     emoji: "🐈",
-    healthLevel: 89,
+    healthLevel: 81,
     emotionalState: "Focused",
     emotionEmoji: "🧐"
   }];
