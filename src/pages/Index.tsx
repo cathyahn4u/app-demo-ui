@@ -69,27 +69,39 @@ const Index = () => {
 
   const instagramPosts = [{
     id: 1,
-    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
-    caption: "Happy playtime in the park! 🎾",
-    likes: 127,
-    timestamp: "3 hours ago"
+    imageUrl: "/pet-photos/flower-field.jpeg",
+    caption: "Running through a field of flowers! Living my best life 🌼✨",
+    likes: 342,
+    timestamp: "2 hours ago"
   }, {
     id: 2,
-    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
-    caption: "Afternoon nap after a long walk 😴",
-    likes: 98,
-    timestamp: "6 hours ago"
+    imageUrl: "/pet-photos/puppy-selfie.jpeg",
+    caption: "Selfie game strong 📸 Who else loves belly rubs?",
+    likes: 289,
+    timestamp: "5 hours ago"
   }, {
     id: 3,
-    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
-    caption: "Enjoying the sunshine ☀️",
-    likes: 156,
+    imageUrl: "/pet-photos/smiling-dog.jpeg",
+    caption: "Found a flower and couldn't stop smiling! 🌸😁",
+    likes: 421,
     timestamp: "1 day ago"
   }, {
     id: 4,
-    imageUrl: "/lovable-uploads/2890d838-d769-4092-8f55-364e2d26f594.png",
-    caption: "Best day ever at the beach! 🏖️",
-    likes: 203,
+    imageUrl: "/pet-photos/sunset-pup.jpeg",
+    caption: "Golden hour is MY hour 🌅✨",
+    likes: 567,
+    timestamp: "1 day ago"
+  }, {
+    id: 5,
+    imageUrl: "/pet-photos/black-kitten.jpeg",
+    caption: "My feline friend stopping by for cuddles 🐱💕",
+    likes: 234,
+    timestamp: "2 days ago"
+  }, {
+    id: 6,
+    imageUrl: "/pet-photos/black-cat.jpeg",
+    caption: "Tilt your head if you're adorable 😸",
+    likes: 312,
     timestamp: "2 days ago"
   }];
   return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90">
