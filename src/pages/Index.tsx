@@ -114,12 +114,12 @@ const Index = () => {
   }, {
     id: 5,
     imageUrl: "/pet-photos/black-kitten.jpeg",
-    caption: "Not feeling my best today, but still sending love 💕",
+    caption: "Had a fever but my owner noticed it quick by PetLepathy 🌡️ Heading to the vet! 🏥",
     likes: 234,
     timestamp: "2 days ago",
     username: "@midnightkitty",
     emoji: "🐈‍⬛",
-    healthLevel: 62,
+    healthLevel: 25,
     emotionalState: "Unwell",
     emotionEmoji: "😔"
   }, {
