@@ -78,7 +78,7 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
                   <PawIcon filled />
                   <span className="font-semibold">{post.likes} paws</span>
                 </div>
-                <span>5 minutes ago</span>
+                <span>{post.timestamp}</span>
               </div>
               
               <p className="text-sm text-foreground mb-3">{post.caption}</p>
