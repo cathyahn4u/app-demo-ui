@@ -6,6 +6,11 @@ interface Post {
   caption: string;
   likes: number;
   timestamp: string;
+  username: string;
+  emoji: string;
+  healthLevel: number; // 0-100
+  emotionalState: string;
+  emotionEmoji: string;
 }
 
 const PawIcon = ({ filled = false }: { filled?: boolean }) => (
@@ -54,6 +59,12 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
             key={post.id}
             className="bg-muted/20 rounded-lg overflow-hidden hover-scale"
           >
+            {/* Username and Emoji Header */}
+            <div className="flex items-center gap-2 p-3 pb-2">
+              <div className="text-2xl">{post.emoji}</div>
+              <span className="text-sm font-semibold text-foreground">{post.username}</span>
+            </div>
+            
             <div className="aspect-square bg-gradient-to-br from-muted/40 to-muted/20 flex items-center justify-center">
               <img
                 src={post.imageUrl}
@@ -62,13 +73,36 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
               />
             </div>
             <div className="p-3">
-              <p className="text-sm text-foreground mb-2">{post.caption}</p>
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
                 <div className="flex items-center gap-1.5 text-primary">
                   <PawIcon filled />
-                  <span className="font-semibold">{post.likes}</span>
+                  <span className="font-semibold">{post.likes} paws</span>
                 </div>
                 <span>{post.timestamp}</span>
+              </div>
+              
+              <p className="text-sm text-foreground mb-3">{post.caption}</p>
+              
+              {/* Health and Emotional State */}
+              <div className="space-y-2 pt-2 border-t border-border/30">
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-muted-foreground">Health</span>
+                    <span className="font-semibold text-foreground">{post.healthLevel}%</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-muted/40 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all"
+                      style={{ width: `${post.healthLevel}%` }}
+                    />
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-muted-foreground">Mood:</span>
+                  <span className="text-lg">{post.emotionEmoji}</span>
+                  <span className="font-semibold text-foreground">{post.emotionalState}</span>
+                </div>
               </div>
             </div>
           </div>
