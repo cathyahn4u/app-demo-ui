@@ -184,18 +184,16 @@ const Index = () => {
                     ))}
                   </div>
                   
-                  {/* Unlock message - Glass effect */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-md">
-                    <div className="bg-card/70 backdrop-blur-xl border border-border/50 rounded-lg p-6 max-w-md text-center shadow-xl">
-                      <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        Hardware Required
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
-                      </p>
-                    </div>
-                  </div>
+                {/* Unlock message - Glass effect */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/20 backdrop-blur-md text-center px-6">
+                  <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    Hardware Required
+                  </h3>
+                  <p className="text-sm text-muted-foreground max-w-md">
+                    Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
+                  </p>
+                </div>
                 </div>
               </div>
 
@@ -218,18 +216,16 @@ const Index = () => {
                     <PainGauge painLevel={12} lastUpdated="Just now" />
                   </div>
                   
-                  {/* Unlock message - Glass effect */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-md">
-                    <div className="bg-card/70 backdrop-blur-xl border border-border/50 rounded-lg p-4 text-center shadow-xl">
-                      <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
-                      <h3 className="text-base font-semibold text-foreground mb-1">
-                        Hardware Required
-                      </h3>
-                      <p className="text-xs text-muted-foreground">
-                        Connect our device for biosignal-based pain detection.
-                      </p>
-                    </div>
-                  </div>
+                {/* Unlock message - Glass effect */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/20 backdrop-blur-md text-center px-4">
+                  <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
+                  <h3 className="text-base font-semibold text-foreground mb-1">
+                    Hardware Required
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    Connect our device for biosignal-based pain detection.
+                  </p>
+                </div>
                 </div>
               </div>
             </div>
