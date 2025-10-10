@@ -182,7 +182,7 @@ const Index = () => {
                   </div>
                   
                 {/* Unlock message - Glass effect */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-6">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-sm text-center px-6">
                   <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     Hardware Required
@@ -190,7 +190,7 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground max-w-md mb-4">
                     Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
                   </p>
-                  <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all">Register HW Presale</Button>
+                  <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
                 </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ const Index = () => {
                   </div>
                   
                 {/* Unlock message - Glass effect */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-sm text-center px-4">
                   <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
                   <h3 className="text-base font-semibold text-foreground mb-1">
                     Hardware Required
@@ -223,7 +223,7 @@ const Index = () => {
                   <p className="text-xs text-muted-foreground mb-3">
                     Connect our device for biosignal-based pain detection.
                   </p>
-                  <Button variant="default" size="default" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm transition-all">Register HW Presale</Button>
+                  <Button variant="default" size="default" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 text-sm transition-all">Register HW Presale</Button>
                 </div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ const Index = () => {
               </div>
               
               {/* Unlock message - Glass effect */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-6">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-sm text-center px-6">
                 <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   Hardware Required
@@ -256,7 +256,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground max-w-md mb-4">
                   Connect our specialized hardware device to unlock detailed analysis history and trends.
                 </p>
-                <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all">Register HW Presale</Button>
+                <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
               </div>
               </div>
             </div>
