@@ -3,6 +3,7 @@ import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
+import { BottomNav } from "@/components/BottomNav";
 import { Button } from "@/components/ui/button";
 import { Activity, Heart, Scan, Loader2, Smartphone } from "lucide-react";
 import { useState } from "react";
@@ -167,7 +168,7 @@ const Index = () => {
     emotionalState: "Focused",
     emotionEmoji: "🧐"
   }];
-  return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90 pb-20">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -271,6 +272,8 @@ const Index = () => {
           </Link>
         </div>
       </div>
+      
+      <BottomNav />
     </div>;
 };
 export default Index;
