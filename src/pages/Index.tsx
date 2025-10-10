@@ -3,7 +3,7 @@ import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
 import { BottomNav } from "@/components/BottomNav";
-import { Activity, Heart, Lock } from "lucide-react";
+import { Activity, Heart, Lock, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -249,7 +249,7 @@ const Index = () => {
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-                  <Activity className="w-6 h-6 text-primary" />
+                  <BarChart3 className="w-6 h-6 text-primary" />
                   Recent Analysis
                 </h2>
                 <Badge variant="secondary" className="flex items-center gap-1">
