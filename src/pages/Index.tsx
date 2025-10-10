@@ -185,7 +185,7 @@ const Index = () => {
                   </div>
                   
                 {/* Unlock message - Glass effect */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/20 backdrop-blur-md text-center px-6">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-6">
                   <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     Hardware Required
@@ -217,7 +217,7 @@ const Index = () => {
                   </div>
                   
                 {/* Unlock message - Glass effect */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/20 backdrop-blur-md text-center px-4">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-4">
                   <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
                   <h3 className="text-base font-semibold text-foreground mb-1">
                     Hardware Required
@@ -230,9 +230,22 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Recent Analysis */}
-            <div className="mb-8">
-              <RecentAnalysis entries={recentAnalysisData} />
+            {/* Recent Analysis - Locked */}
+            <div className="mb-8 relative">
+              <div className="opacity-60">
+                <RecentAnalysis entries={recentAnalysisData} />
+              </div>
+              
+              {/* Unlock message - Glass effect */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-md text-center px-6">
+                <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Hardware Required
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-md">
+                  Connect our specialized hardware device to unlock detailed analysis history and trends.
+                </p>
+              </div>
             </div>
           </>}
 
