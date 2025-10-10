@@ -1,4 +1,4 @@
-import { Search, Share2, Settings, LineChart } from "lucide-react";
+import { Search, PawPrint, Settings, LineChart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface BottomNavProps {
@@ -9,7 +9,7 @@ interface BottomNavProps {
 export const BottomNav = ({ activeTab = "analyze", onTabChange }: BottomNavProps) => {
   const navItems = [
     { id: "analyze", label: "Analyze", icon: LineChart },
-    { id: "share", label: "Share", icon: Share2 },
+    { id: "share", label: "Share", icon: PawPrint },
     { id: "search", label: "Search", icon: Search },
     { id: "settings", label: "Settings", icon: Settings },
   ];
