@@ -178,15 +178,15 @@ const Index = () => {
                 
                 {/* Locked overlay */}
                 <div className="relative">
-                  <div className="grid grid-cols-2 gap-4 blur-sm opacity-40 pointer-events-none">
+                  <div className="grid grid-cols-2 gap-4 opacity-60">
                     {emotionData.map((emotion, index) => (
                       <EmotionCard key={index} {...emotion} />
                     ))}
                   </div>
                   
-                  {/* Unlock message */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg p-6 max-w-md text-center shadow-lg">
+                  {/* Unlock message - Glass effect */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-md">
+                    <div className="bg-card/70 backdrop-blur-xl border border-border/50 rounded-lg p-6 max-w-md text-center shadow-xl">
                       <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
                       <h3 className="text-lg font-semibold text-foreground mb-2">
                         Hardware Required
@@ -214,13 +214,13 @@ const Index = () => {
                 
                 {/* Locked overlay */}
                 <div className="relative">
-                  <div className="blur-sm opacity-40 pointer-events-none">
+                  <div className="opacity-60">
                     <PainGauge painLevel={12} lastUpdated="Just now" />
                   </div>
                   
-                  {/* Unlock message */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg p-4 text-center shadow-lg">
+                  {/* Unlock message - Glass effect */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-md">
+                    <div className="bg-card/70 backdrop-blur-xl border border-border/50 rounded-lg p-4 text-center shadow-xl">
                       <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
                       <h3 className="text-base font-semibold text-foreground mb-1">
                         Hardware Required
