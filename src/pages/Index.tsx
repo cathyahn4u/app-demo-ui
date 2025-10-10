@@ -246,7 +246,19 @@ const Index = () => {
             </div>
 
             {/* Recent Analysis - Locked */}
-            <div className="mb-8 relative">
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                  <Activity className="w-6 h-6 text-primary" />
+                  Recent Analysis
+                </h2>
+                <Badge variant="secondary" className="flex items-center gap-1">
+                  <Lock className="w-3 h-3" />
+                  Locked
+                </Badge>
+              </div>
+              
+              <div className="relative">
               <div className="opacity-60">
                 <RecentAnalysis entries={recentAnalysisData} />
               </div>
@@ -267,6 +279,7 @@ const Index = () => {
                 >
                   Register Presale
                 </Button>
+              </div>
               </div>
             </div>
           </>}
