@@ -194,7 +194,11 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground max-w-md mb-4">
                     Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
                   </p>
-                  <Button variant="default" size="lg">
+                  <Button 
+                    variant="default" 
+                    size="lg"
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-2 px-6 h-auto font-semibold shadow-lg"
+                  >
                     Register Presale
                   </Button>
                 </div>
@@ -229,7 +233,11 @@ const Index = () => {
                   <p className="text-xs text-muted-foreground mb-3">
                     Connect our device for biosignal-based pain detection.
                   </p>
-                  <Button variant="default" size="default">
+                  <Button 
+                    variant="default" 
+                    size="default"
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm"
+                  >
                     Register Presale
                   </Button>
                 </div>
@@ -252,7 +260,11 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground max-w-md mb-4">
                   Connect our specialized hardware device to unlock detailed analysis history and trends.
                 </p>
-                <Button variant="default" size="lg">
+                <Button 
+                  variant="default" 
+                  size="lg"
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-2 px-6 h-auto font-semibold shadow-lg"
+                >
                   Register Presale
                 </Button>
               </div>
