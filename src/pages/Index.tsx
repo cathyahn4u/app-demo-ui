@@ -162,7 +162,32 @@ const Index = () => {
         {/* Main Dashboard Grid */}
         {activeTab === "analyze" && <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-...
+              {/* Emotional Analysis */}
+              <div className="lg:col-span-2 space-y-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-primary" />
+                  Emotional Analysis
+                </h2>
+                <div className="grid grid-cols-2 gap-4">
+                  {emotionData.map((emotion, index) => (
+                    <EmotionCard key={index} {...emotion} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Pain Detection */}
+              <div>
+                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Activity className="w-6 h-6 text-primary" />
+                  Pain Detection
+                </h2>
+                <PainGauge painLevel={12} lastUpdated="Just now" />
+              </div>
+            </div>
+
+            {/* Recent Analysis */}
+            <div className="mb-8">
+              <RecentAnalysis entries={recentAnalysisData} />
             </div>
           </>}
 
