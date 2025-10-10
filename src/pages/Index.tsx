@@ -12,6 +12,7 @@ import logoIcon from "@/assets/logo_icon.png";
 const Index = () => {
   const [showAnalysis, setShowAnalysis] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [activeTab, setActiveTab] = useState("analyze");
   const handleAnalyze = () => {
     setIsAnalyzing(true);
     setTimeout(() => {
@@ -201,62 +202,18 @@ const Index = () => {
           </div>}
 
         {/* Main Dashboard Grid */}
-        {showAnalysis && <>
+        {showAnalysis && activeTab === "analyze" && <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              {/* Pain Analysis - Takes prominent position */}
-              <div className="lg:col-span-1">
-                <PainGauge painLevel={12} lastUpdated="2 hours ago" />
-              </div>
-
-              {/* Emotion Grid */}
-              <div className="lg:col-span-2">
-                <div className="mb-4 flex items-center gap-2">
-                  <Heart className="w-5 h-5 text-primary" />
-                  <h2 className="text-xl font-semibold text-foreground">Emotion Analysis</h2>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {emotionData.map(emotion => <EmotionCard key={emotion.emotion} emotion={emotion.emotion} confidence={emotion.confidence} isActive={emotion.isActive} />)}
-                </div>
-              </div>
-            </div>
-
-            {/* Recent Analysis */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <RecentAnalysis entries={recentAnalysisData} />
-              
-              {/* Quick Stats */}
-              <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
-                <div className="flex items-center gap-2 mb-4">
-                  <Activity className="w-5 h-5 text-primary" />
-                  <h3 className="text-lg font-semibold text-foreground">Today's Summary</h3>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-muted/20 rounded-lg">
-                    <div className="text-2xl font-bold text-happy">95%</div>
-                    <div className="text-sm text-muted-foreground">Positive Emotions</div>
-                  </div>
-                  <div className="text-center p-4 bg-muted/20 rounded-lg">
-                    <div className="text-2xl font-bold text-pain-low">8</div>
-                    <div className="text-sm text-muted-foreground">Analyses Today</div>
-                  </div>
-                  <div className="text-center p-4 bg-muted/20 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">4.2</div>
-                    <div className="text-sm text-muted-foreground">Avg Wellness Score</div>
-                  </div>
-                  <div className="text-center p-4 bg-muted/20 rounded-lg">
-                    <div className="text-2xl font-bold text-accent">12%</div>
-                    <div className="text-sm text-muted-foreground">Avg Pain Level</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Pet Instagram */}
-            <div className="mt-6">
-              <PetInstagram posts={instagramPosts} />
+...
             </div>
           </>}
+
+        {/* Pet Instagram - Share Tab */}
+        {showAnalysis && activeTab === "share" && (
+          <div className="mt-6">
+            <PetInstagram posts={instagramPosts} />
+          </div>
+        )}
 
         {/* Lockscreen Button */}
         <div className="text-center mt-12">
@@ -273,7 +230,7 @@ const Index = () => {
         </div>
       </div>
       
-      <BottomNav />
+      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>;
 };
 export default Index;
