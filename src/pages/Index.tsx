@@ -197,7 +197,7 @@ const Index = () => {
                   <Button 
                     variant="default" 
                     size="lg"
-                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-2 px-6 h-auto font-semibold shadow-lg"
+                    className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all"
                   >
                     Register Presale
                   </Button>
@@ -236,7 +236,7 @@ const Index = () => {
                   <Button 
                     variant="default" 
                     size="default"
-                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm"
+                    className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm transition-all"
                   >
                     Register Presale
                   </Button>
@@ -263,7 +263,7 @@ const Index = () => {
                 <Button 
                   variant="default" 
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full py-2 px-6 h-auto font-semibold shadow-lg"
+                  className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all"
                 >
                   Register Presale
                 </Button>
