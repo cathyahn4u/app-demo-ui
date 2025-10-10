@@ -7,7 +7,6 @@ import { Activity, Heart, Lock, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
 const Index = () => {
   const [activeTab, setActiveTab] = useState("analyze");
 
@@ -58,7 +57,6 @@ const Index = () => {
     painLevel: 10,
     trend: 'stable' as const
   }];
-
   const instagramPosts = [{
     id: 1,
     imageUrl: "/pet-photos/flower-field.jpeg",
@@ -180,9 +178,7 @@ const Index = () => {
                 {/* Locked overlay */}
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-4 opacity-60">
-                    {emotionData.map((emotion, index) => (
-                      <EmotionCard key={index} {...emotion} />
-                    ))}
+                    {emotionData.map((emotion, index) => <EmotionCard key={index} {...emotion} />)}
                   </div>
                   
                 {/* Unlock message - Glass effect */}
@@ -194,13 +190,7 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground max-w-md mb-4">
                     Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
                   </p>
-                  <Button 
-                    variant="default" 
-                    size="lg"
-                    className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all"
-                  >
-                    Register Presale
-                  </Button>
+                  <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all">Register HW Presale</Button>
                 </div>
                 </div>
               </div>
@@ -233,13 +223,7 @@ const Index = () => {
                   <p className="text-xs text-muted-foreground mb-3">
                     Connect our device for biosignal-based pain detection.
                   </p>
-                  <Button 
-                    variant="default" 
-                    size="default"
-                    className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm transition-all"
-                  >
-                    Register Presale
-                  </Button>
+                  <Button variant="default" size="default" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg text-sm transition-all">Register HW Presale</Button>
                 </div>
                 </div>
               </div>
@@ -272,24 +256,16 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground max-w-md mb-4">
                   Connect our specialized hardware device to unlock detailed analysis history and trends.
                 </p>
-                <Button 
-                  variant="default" 
-                  size="lg"
-                  className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all"
-                >
-                  Register Presale
-                </Button>
+                <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)] to-[hsl(175,89%,83%)] hover:from-[hsl(237,85%,68%)] hover:to-[hsl(175,89%,78%)] text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg transition-all">Register HW Presale</Button>
               </div>
               </div>
             </div>
           </>}
 
         {/* Pet Instagram - Share Tab */}
-        {activeTab === "share" && (
-          <div className="mt-6">
+        {activeTab === "share" && <div className="mt-6">
             <PetInstagram posts={instagramPosts} />
-          </div>
-        )}
+          </div>}
       </div>
       
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
