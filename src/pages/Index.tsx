@@ -209,7 +209,7 @@ const Index = () => {
           </>}
 
         {/* Pet Instagram - Share Tab */}
-        {showAnalysis && activeTab === "share" && (
+        {activeTab === "share" && (
           <div className="mt-6">
             <PetInstagram posts={instagramPosts} />
           </div>
