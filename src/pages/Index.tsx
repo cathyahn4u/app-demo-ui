@@ -3,7 +3,8 @@ import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
 import { BottomNav } from "@/components/BottomNav";
-import { Activity, Heart } from "lucide-react";
+import { Activity, Heart, Lock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
 const Index = () => {
@@ -162,26 +163,74 @@ const Index = () => {
         {/* Main Dashboard Grid */}
         {activeTab === "analyze" && <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              {/* Emotional Analysis */}
-              <div className="lg:col-span-2 space-y-4">
-                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Heart className="w-6 h-6 text-primary" />
-                  Emotional Analysis
-                </h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {emotionData.map((emotion, index) => (
-                    <EmotionCard key={index} {...emotion} />
-                  ))}
+              {/* Emotional Analysis - Locked */}
+              <div className="lg:col-span-2 space-y-4 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                    <Heart className="w-6 h-6 text-primary" />
+                    Emotional Analysis
+                  </h2>
+                  <Badge variant="secondary" className="flex items-center gap-1">
+                    <Lock className="w-3 h-3" />
+                    Locked
+                  </Badge>
+                </div>
+                
+                {/* Locked overlay */}
+                <div className="relative">
+                  <div className="grid grid-cols-2 gap-4 blur-sm opacity-40 pointer-events-none">
+                    {emotionData.map((emotion, index) => (
+                      <EmotionCard key={index} {...emotion} />
+                    ))}
+                  </div>
+                  
+                  {/* Unlock message */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg p-6 max-w-md text-center shadow-lg">
+                      <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
+                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                        Hardware Required
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Unlock advanced biosignal analysis by connecting our specialized hardware device. Monitor your pet's emotional state in real-time with precision.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Pain Detection */}
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Activity className="w-6 h-6 text-primary" />
-                  Pain Detection
-                </h2>
-                <PainGauge painLevel={12} lastUpdated="Just now" />
+              {/* Pain Detection - Locked */}
+              <div className="relative">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                    <Activity className="w-6 h-6 text-primary" />
+                    Pain Detection
+                  </h2>
+                  <Badge variant="secondary" className="flex items-center gap-1">
+                    <Lock className="w-3 h-3" />
+                    Locked
+                  </Badge>
+                </div>
+                
+                {/* Locked overlay */}
+                <div className="relative">
+                  <div className="blur-sm opacity-40 pointer-events-none">
+                    <PainGauge painLevel={12} lastUpdated="Just now" />
+                  </div>
+                  
+                  {/* Unlock message */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-card/95 backdrop-blur-sm border border-border rounded-lg p-4 text-center shadow-lg">
+                      <Lock className="w-10 h-10 text-primary mx-auto mb-2" />
+                      <h3 className="text-base font-semibold text-foreground mb-1">
+                        Hardware Required
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        Connect our device for biosignal-based pain detection.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
