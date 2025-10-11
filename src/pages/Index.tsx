@@ -164,20 +164,16 @@ const Index = () => {
             {/* Avatar Generation Section */}
             <div className="mb-6">
               <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
-                <h2 className="text-2xl font-bold text-foreground mb-3 flex items-center justify-center gap-2">
+                <h2 className="font-bold text-foreground mb-3 flex items-center justify-center gap-2 text-xl">
                   <Heart className="w-6 h-6 text-primary" />
                   Generate your fur-riend's own avatar
                 </h2>
-                <p className="text-muted-foreground mb-4 max-w-2xl mx-auto">
+                <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">
                   The avatar will mirror how your fur-riend is feeling once connected to our hardware. 
                   Check how your furry love is doing right on your lockscreen and background widgets – 
                   keeping you close to their heart, always. 💕
                 </p>
-                <Button 
-                  variant="default" 
-                  size="lg" 
-                  className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all"
-                >
+                <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">
                   Generate Avatar
                 </Button>
               </div>
