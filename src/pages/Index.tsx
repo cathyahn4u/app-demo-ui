@@ -187,8 +187,7 @@ const Index = () => {
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     Hardware Required
                   </h3>
-                  <p className="text-sm text-muted-foreground max-w-md mb-4">Understand what your furry friend is feeling based on 
-biosignals, using our wearable.</p>
+                  <p className="text-muted-foreground max-w-md mb-4 text-sm">Understand what your furry friend is feeling based on biosignals, using our wearable device.</p>
                   <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
                 </div>
                 </div>
@@ -219,7 +218,7 @@ biosignals, using our wearable.</p>
                   <h3 className="text-base font-semibold text-foreground mb-1">
                     Hardware Required
                   </h3>
-                  <p className="text-xs text-muted-foreground mb-3">Connect our device. Never miss their pain.</p>
+                  <p className="text-muted-foreground mb-3 text-sm">Connect our device. Never miss their pain.</p>
                   <Button variant="default" size="default" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 text-sm transition-all">Register HW Presale</Button>
                 </div>
                 </div>
@@ -250,9 +249,7 @@ biosignals, using our wearable.</p>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   Hardware Required
                 </h3>
-                <p className="text-sm text-muted-foreground max-w-md mb-4">
-                  Connect our specialized hardware device to unlock detailed analysis history and trends.
-                </p>
+                <p className="text-sm text-muted-foreground max-w-md mb-4">Connect our device to unlock detailed analysis history and trends.</p>
                 <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
               </div>
               </div>
