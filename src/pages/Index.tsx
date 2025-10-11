@@ -162,37 +162,6 @@ const Index = () => {
         {/* Main Dashboard Grid */}
         {activeTab === "analyze" && <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              {/* Emotional Analysis - Locked */}
-              <div className="lg:col-span-2 space-y-4 relative">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-                    <Heart className="w-6 h-6 text-primary" />
-                    Emotional Analysis
-                  </h2>
-                  <Badge variant="secondary" className="flex items-center gap-1">
-                    <Lock className="w-3 h-3" />
-                    Locked
-                  </Badge>
-                </div>
-                
-                {/* Locked overlay */}
-                <div className="relative">
-                  <div className="grid grid-cols-2 gap-4 opacity-60">
-                    {emotionData.map((emotion, index) => <EmotionCard key={index} {...emotion} />)}
-                  </div>
-                  
-                {/* Unlock message - Glass effect */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-sm text-center px-6">
-                  <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    Hardware Required
-                  </h3>
-                  <p className="text-muted-foreground max-w-md mb-4 text-sm">Understand what your furry friend is feeling based on biosignals, using our wearable device.</p>
-                  <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
-                </div>
-                </div>
-              </div>
-
               {/* Pain Detection - Locked */}
               <div className="relative">
                 <div className="flex items-center justify-between mb-4">
@@ -220,6 +189,37 @@ const Index = () => {
                   </h3>
                   <p className="text-muted-foreground mb-3 text-sm">Connect our device. Never miss their pain.</p>
                   <Button variant="default" size="default" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-1.5 px-5 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 text-sm transition-all">Register HW Presale</Button>
+                </div>
+                </div>
+              </div>
+
+              {/* Emotional Analysis - Locked */}
+              <div className="lg:col-span-2 space-y-4 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                    <Heart className="w-6 h-6 text-primary" />
+                    Emotional Analysis
+                  </h2>
+                  <Badge variant="secondary" className="flex items-center gap-1">
+                    <Lock className="w-3 h-3" />
+                    Locked
+                  </Badge>
+                </div>
+                
+                {/* Locked overlay */}
+                <div className="relative">
+                  <div className="grid grid-cols-2 gap-4 opacity-60">
+                    {emotionData.map((emotion, index) => <EmotionCard key={index} {...emotion} />)}
+                  </div>
+                  
+                {/* Unlock message - Glass effect */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/10 backdrop-blur-sm text-center px-6">
+                  <Lock className="w-12 h-12 text-primary mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    Hardware Required
+                  </h3>
+                  <p className="text-muted-foreground max-w-md mb-4 text-sm">Understand what your furry friend is feeling based on biosignals, using our wearable device.</p>
+                  <Button variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">Register HW Presale</Button>
                 </div>
                 </div>
               </div>
