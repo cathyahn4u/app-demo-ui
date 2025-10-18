@@ -1,4 +1,4 @@
-# PetLepathy app demo
+# PetLepathy app demo UI
 ## Project info
 
 **URL**: https://lovable.dev/projects/f5c46c31-6286-4bc8-bef6-16bca0776e26
