@@ -38,20 +38,18 @@ export const LockscreenSettings = () => {
         <h3 className="text-lg font-semibold text-foreground mb-4">Preview</h3>
         
         <div className="flex justify-center">
-          <div className="relative w-[273px] h-[591px] bg-gradient-to-br from-purple-600 via-blue-500 to-purple-700 rounded-[20px] overflow-hidden shadow-2xl">
-            {/* Background pattern/image would go here */}
-            <div className="absolute inset-0 bg-black/20" />
+          <div className="relative w-[375px] h-[812px] bg-gradient-to-br from-purple-600 via-blue-500 to-purple-700 rounded-[40px] overflow-hidden shadow-2xl">
             
-            {/* Time */}
-            <div className="absolute top-4 left-7 text-black font-semibold text-xl">
+            {/* Small time at top left */}
+            <div className="absolute top-12 left-8 text-black font-semibold text-4xl">
               9:41
             </div>
 
-            {/* Widget Container */}
-            <div className="absolute top-[7px] left-[69px] w-[135px] bg-black rounded-[13.4px] p-1.5 border border-black">
-              <div className="flex items-center gap-2">
-                {/* Pet Character */}
-                <div className="w-[17px] h-[17px] rounded-[4px] overflow-hidden bg-white flex items-center justify-center">
+            {/* Widget Container - matching the reference exactly */}
+            <div className="absolute top-[170px] left-1/2 -translate-x-1/2 w-[340px] bg-black rounded-[28px] px-5 py-4 border border-black/50 shadow-xl">
+              <div className="flex items-center gap-3">
+                {/* Pet Character Icon */}
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
                   <img 
                     src={blackCatCharacter} 
                     alt="Pet character" 
@@ -59,39 +57,46 @@ export const LockscreenSettings = () => {
                   />
                 </div>
 
-                {/* Pet Name & Info */}
-                <div className="flex-1">
-                  <div className="text-white text-[8px] font-medium mb-0.5">Shadow</div>
-                  <div className="flex items-center gap-0.5">
-                    <span className="text-white text-[6px]">Health</span>
-                    <div className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden ml-1">
-                      <div className="h-full bg-gradient-to-r from-green-400 to-blue-400 rounded-full" style={{ width: '85%' }} />
+                {/* Pet Info Section */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-white text-base font-semibold mb-2">Shadow</div>
+                  
+                  {/* Health Bar */}
+                  <div className="mb-1.5">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-white text-xs font-medium w-12">Health</span>
+                      <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style={{ width: '85%' }} />
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-0.5 mt-0.5">
-                    <span className="text-white text-[6px]">Mood</span>
-                    <div className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden ml-2">
-                      <div className="h-full bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full" style={{ width: '92%' }} />
+                  
+                  {/* Mood Bar */}
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-white text-xs font-medium w-12">Mood</span>
+                      <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full" style={{ width: '75%' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Status Bars */}
-                <div className="flex gap-[2px] items-end h-[17px]">
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-green-400 to-green-300" style={{ height: '30%' }} />
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-blue-400 to-blue-300" style={{ height: '70%' }} />
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-purple-400 to-purple-300" style={{ height: '100%' }} />
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-pink-400 to-pink-300" style={{ height: '80%' }} />
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-yellow-400 to-yellow-300" style={{ height: '90%' }} />
-                  <div className="w-[1.5px] rounded-full bg-gradient-to-t from-green-400 to-green-300" style={{ height: '30%' }} />
+                {/* Activity Bars */}
+                <div className="flex gap-1 items-end h-12 ml-2">
+                  <div className="w-1 rounded-full bg-gradient-to-t from-green-400 to-green-300" style={{ height: '30%' }} />
+                  <div className="w-1 rounded-full bg-gradient-to-t from-blue-400 to-blue-300" style={{ height: '70%' }} />
+                  <div className="w-1 rounded-full bg-gradient-to-t from-purple-400 to-purple-300" style={{ height: '100%' }} />
+                  <div className="w-1 rounded-full bg-gradient-to-t from-pink-400 to-pink-300" style={{ height: '85%' }} />
+                  <div className="w-1 rounded-full bg-gradient-to-t from-yellow-400 to-yellow-300" style={{ height: '95%' }} />
                 </div>
               </div>
             </div>
 
-            {/* Date/Time at bottom */}
-            <div className="absolute bottom-32 left-0 right-0 text-center">
-              <div className="text-white text-7xl font-light mb-2">9:41</div>
-              <div className="text-white text-lg font-medium">Monday, October 19</div>
+            {/* Large time at bottom */}
+            <div className="absolute bottom-60 left-0 right-0 text-center">
+              <div className="text-white text-[120px] font-light leading-none mb-4">9:41</div>
+              <div className="text-white text-2xl font-medium">Monday, October 19</div>
             </div>
           </div>
         </div>
