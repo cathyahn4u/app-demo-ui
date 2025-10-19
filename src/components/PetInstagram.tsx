@@ -1,4 +1,12 @@
-import { Camera } from "lucide-react";
+import { Camera, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Post {
   id: number;
@@ -39,11 +47,35 @@ const PawIcon = ({ filled = false }: { filled?: boolean }) => (
 );
 
 export const PetInstagram = ({ posts }: { posts: Post[] }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
-      <div className="flex items-center gap-2 mb-6">
-        <Camera className="w-5 h-5 text-primary" />
-        <h3 className="text-lg font-semibold text-foreground">Pet Community Feed</h3>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-2">
+          <Camera className="w-5 h-5 text-primary" />
+          <h3 className="text-lg font-semibold text-foreground">Pet Community Feed</h3>
+        </div>
+        
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button size="sm" className="gap-2">
+              <Plus className="w-4 h-4" />
+              Add
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => navigate("/meme-generator")}>
+              🎨 Generate Meme
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              📸 Add Photo
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              🎥 Add Video
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
