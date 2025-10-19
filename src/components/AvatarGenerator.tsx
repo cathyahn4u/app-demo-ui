@@ -48,6 +48,22 @@ export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
     });
   };
 
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText('https://pet-lepathy.com/app-demo/avatar-generation');
+      toast({
+        title: "Link copied!",
+        description: "Share this link to let others create their own pet avatar",
+      });
+    } catch (err) {
+      toast({
+        title: "Failed to copy link",
+        description: "Please try again",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <Card className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 p-6">
       <div className="grid md:grid-cols-2 gap-6">
@@ -129,18 +145,27 @@ export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
           </div>
 
           {generatedAvatar && (
-            <Button
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = generatedAvatar;
-                link.download = 'pet-avatar.png';
-                link.click();
-              }}
-              variant="outline"
-              className="w-full"
-            >
-              Download Avatar
-            </Button>
+            <div className="space-y-3">
+              <Button
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = generatedAvatar;
+                  link.download = 'pet-avatar.png';
+                  link.click();
+                }}
+                variant="outline"
+                className="w-full"
+              >
+                Download Avatar
+              </Button>
+              <Button
+                onClick={handleShare}
+                variant="secondary"
+                className="w-full"
+              >
+                Share Avatar
+              </Button>
+            </div>
           )}
         </div>
       </div>
