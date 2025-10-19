@@ -158,6 +158,16 @@ const Index = () => {
     emotionEmoji: "🧐"
   }];
   return <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background/90 pb-20">
+      {/* Top Banner */}
+      <div className="bg-gradient-to-r from-purple-500 to-purple-600 py-3 px-4 text-center">
+        <p className="text-white text-sm md:text-base">
+          Health/Emotion data is randomized for demo.{' '}
+          <a href="#" className="underline font-semibold hover:text-white/90 transition-colors">
+            Support our Hardware Kickstarter!
+          </a>
+        </p>
+      </div>
+
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Main Dashboard Grid */}
         {activeTab === "analyze" && <>
