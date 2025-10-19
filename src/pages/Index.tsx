@@ -72,7 +72,7 @@ const Index = () => {
     emotionEmoji: "😊"
   }, {
     id: 2,
-    imageUrl: "/pet-photos/puppy-selfie.jpeg",
+    imageUrl: "/pet-photos/smiling-dog.jpeg",
     caption: "Selfie game strong 📸 Who else loves belly rubs?",
     quote: "I mastered the art of the puppy eyes. My human can't resist giving me all the belly rubs now!",
     petName: "Max",
@@ -85,7 +85,7 @@ const Index = () => {
     emotionEmoji: "🤗"
   }, {
     id: 3,
-    imageUrl: "/pet-photos/smiling-dog.jpeg",
+    imageUrl: "/pet-photos/flower-field.jpeg",
     caption: "Found a flower and couldn't stop smiling! 🌸😁",
     quote: "This flower smells amazing! I'm keeping it forever. Or at least until dinner time.",
     petName: "Charlie",
