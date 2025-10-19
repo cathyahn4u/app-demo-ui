@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Upload, Download, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import logoIcon from "@/assets/logo-icon.png";
 
 type MemeStep = "upload" | "select-caption" | "edit-meme" | "share";
 
@@ -162,9 +163,16 @@ const MemeGenerator = () => {
       ctx.fillText("🐈‍⬛ Midnight", canvas.width - 30, canvas.height - 45);
 
       // Draw PetLepathy logo and text (bottom left)
-      ctx.textAlign = "left";
-      ctx.font = "bold 28px Arial";
-      ctx.fillText("🐾 pet-lepathy.com/app-demo", 30, canvas.height - 45);
+      const logo = new Image();
+      logo.onload = () => {
+        const logoSize = 36;
+        ctx.drawImage(logo, 30, canvas.height - 70, logoSize, logoSize);
+        
+        ctx.textAlign = "left";
+        ctx.font = "bold 28px Arial";
+        ctx.fillText("PetLepathy", 75, canvas.height - 45);
+      };
+      logo.src = logoIcon;
     };
     img.src = uploadedImage;
   };
