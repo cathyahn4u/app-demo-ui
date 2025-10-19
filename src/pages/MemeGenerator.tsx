@@ -40,11 +40,11 @@ const MemeGenerator = () => {
       // Mock AI-generated captions for now
       // TODO: Replace with actual AI generation when Lovable Cloud is enabled
       const mockCaptions: GeneratedCaption[] = [
-        { id: 1, text: "When you finally get that treat you've been eyeing all day" },
-        { id: 2, text: "POV: You just heard the treat bag open from another room" },
-        { id: 3, text: "Me pretending I didn't just steal food from the counter" },
-        { id: 4, text: "That face when hooman says 'no more treats today'" },
-        { id: 5, text: "Living my best life, one paw at a time" }
+        { id: 1, text: "When you adopt a void and it stares into your soul" },
+        { id: 2, text: "POV: You said 'pspsps' and I actually came" },
+        { id: 3, text: "Me at 3AM realizing I have 9 lives to waste" },
+        { id: 4, text: "Nobody: ... Me: Would you still love me if I was a worm?" },
+        { id: 5, text: "Why do I hear boss music? Oh wait, that's just my purr" }
       ];
       
       // Simulate API delay
