@@ -1,14 +1,14 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Upload, Sparkles, Loader2 } from "lucide-react";
+import { Upload, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
+import blackCatAvatar from "@/assets/black-cat-character.png";
 
 export const AvatarGenerator = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [generatedAvatar, setGeneratedAvatar] = useState<string | null>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -33,44 +33,15 @@ export const AvatarGenerator = () => {
     }
   };
 
-  const handleGenerateAvatar = async () => {
+  const handleGenerateAvatar = () => {
     if (!selectedImage) return;
 
-    setIsGenerating(true);
-    try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-pet-avatar`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({
-          imageUrl: selectedImage,
-          prompt: "Transform this pet photo into a cute, stylized cartoon illustration with big expressive eyes, simple shapes, and a clean art style similar to animated characters. Use warm colors for features like ears, maintain the pet's key characteristics, and create a friendly, adorable aesthetic."
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate avatar');
-      }
-
-      const data = await response.json();
-      setGeneratedAvatar(data.avatar);
-      
-      toast({
-        title: "Avatar generated!",
-        description: "Your pet's stylized avatar is ready",
-      });
-    } catch (error) {
-      console.error('Error generating avatar:', error);
-      toast({
-        title: "Generation failed",
-        description: "Failed to generate avatar. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsGenerating(false);
-    }
+    setGeneratedAvatar(blackCatAvatar);
+    
+    toast({
+      title: "Avatar generated!",
+      description: "Your pet's stylized avatar is ready",
+    });
   };
 
   return (
@@ -113,20 +84,11 @@ export const AvatarGenerator = () => {
 
           <Button
             onClick={handleGenerateAvatar}
-            disabled={!selectedImage || isGenerating}
+            disabled={!selectedImage}
             className="w-full bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90"
           >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Generating...
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 mr-2" />
-                Generate Avatar
-              </>
-            )}
+            <Sparkles className="w-4 h-4 mr-2" />
+            Generate Avatar
           </Button>
         </div>
 
