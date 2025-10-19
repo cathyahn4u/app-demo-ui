@@ -1,12 +1,16 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Upload, Sparkles } from "lucide-react";
+import { Upload, Sparkles, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import blackCatAvatar from "@/assets/black-cat-character.png";
 
-export const AvatarGenerator = () => {
+interface AvatarGeneratorProps {
+  onClose?: () => void;
+}
+
+export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [generatedAvatar, setGeneratedAvatar] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -49,10 +53,21 @@ export const AvatarGenerator = () => {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Upload Section */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
-            <Upload className="w-5 h-5 text-primary" />
-            Upload Pet Photo
-          </h3>
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <Upload className="w-5 h-5 text-primary" />
+              Upload Pet Photo
+            </h3>
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-muted/50"
+                aria-label="Close avatar generator"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
+          </div>
           
           <div 
             onClick={() => fileInputRef.current?.click()}

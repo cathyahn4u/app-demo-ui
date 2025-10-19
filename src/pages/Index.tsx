@@ -217,7 +217,7 @@ const Index = () => {
                   </Button>
                 </div>
               ) : (
-                <AvatarGenerator />
+                <AvatarGenerator onClose={() => setShowAvatarGenerator(false)} />
               )}
             </div>
 
