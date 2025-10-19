@@ -50,21 +50,88 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2">
+    <>
+      <div className="bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 shadow-[--shadow-card]">
+        <div className="flex items-center gap-2 mb-6">
           <Camera className="w-5 h-5 text-primary" />
           <h3 className="text-lg font-semibold text-foreground">Pet Community Feed</h3>
         </div>
-        
+      
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="bg-muted/20 rounded-lg overflow-hidden hover-scale"
+            >
+              {/* Username and Emoji Header */}
+              <div className="flex items-center gap-2 p-3 pb-2">
+                <div className="text-2xl">{post.emoji}</div>
+                <span className="text-sm font-semibold text-foreground">{post.username}</span>
+              </div>
+              
+              <div className="aspect-square bg-gradient-to-br from-muted/40 to-muted/20 flex items-center justify-center">
+                <img
+                  src={post.imageUrl}
+                  alt={post.caption}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-3">
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                  <div className="flex items-center gap-1.5 text-primary">
+                    <PawIcon filled />
+                    <span className="font-semibold">{post.likes} paws</span>
+                  </div>
+                  <span>{post.timestamp}</span>
+                </div>
+                
+                <p className="text-sm text-foreground mb-3">{post.caption}</p>
+                
+                {/* Pet Quote */}
+                <div className="bg-muted/30 rounded-lg p-3 mb-3 border-l-2 border-primary/40">
+                  <p className="text-xs font-semibold text-foreground mb-1">{post.petName} says:</p>
+                  <p className="text-sm text-muted-foreground italic">"{post.quote}"</p>
+                </div>
+                
+                {/* Health and Emotional State */}
+                <div className="space-y-2 pt-2 border-t border-border/30">
+                  <div>
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="text-muted-foreground">Health</span>
+                      <span className="font-semibold text-foreground">{post.healthLevel}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-muted/40 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all"
+                        style={{ width: `${post.healthLevel}%` }}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="text-muted-foreground">Mood:</span>
+                    <span className="text-lg">{post.emotionEmoji}</span>
+                    <span className="font-semibold text-foreground">{post.emotionalState}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Floating Add Button */}
+      <div className="fixed bottom-24 right-6 z-50">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size="sm" className="gap-2">
-              <Plus className="w-4 h-4" />
-              Add
+            <Button 
+              size="lg" 
+              className="h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary"
+            >
+              <Plus className="w-6 h-6" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="bg-card border-border z-50">
             <DropdownMenuItem onClick={() => navigate("/meme-generator")}>
               🎨 Generate Meme
             </DropdownMenuItem>
@@ -77,68 +144,6 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="bg-muted/20 rounded-lg overflow-hidden hover-scale"
-          >
-            {/* Username and Emoji Header */}
-            <div className="flex items-center gap-2 p-3 pb-2">
-              <div className="text-2xl">{post.emoji}</div>
-              <span className="text-sm font-semibold text-foreground">{post.username}</span>
-            </div>
-            
-            <div className="aspect-square bg-gradient-to-br from-muted/40 to-muted/20 flex items-center justify-center">
-              <img
-                src={post.imageUrl}
-                alt={post.caption}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-3">
-              <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                <div className="flex items-center gap-1.5 text-primary">
-                  <PawIcon filled />
-                  <span className="font-semibold">{post.likes} paws</span>
-                </div>
-                <span>{post.timestamp}</span>
-              </div>
-              
-              <p className="text-sm text-foreground mb-3">{post.caption}</p>
-              
-              {/* Pet Quote */}
-              <div className="bg-muted/30 rounded-lg p-3 mb-3 border-l-2 border-primary/40">
-                <p className="text-xs font-semibold text-foreground mb-1">{post.petName} says:</p>
-                <p className="text-sm text-muted-foreground italic">"{post.quote}"</p>
-              </div>
-              
-              {/* Health and Emotional State */}
-              <div className="space-y-2 pt-2 border-t border-border/30">
-                <div>
-                  <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-muted-foreground">Health</span>
-                    <span className="font-semibold text-foreground">{post.healthLevel}%</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-muted/40 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all"
-                      style={{ width: `${post.healthLevel}%` }}
-                    />
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="text-muted-foreground">Mood:</span>
-                  <span className="text-lg">{post.emotionEmoji}</span>
-                  <span className="font-semibold text-foreground">{post.emotionalState}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
