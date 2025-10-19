@@ -2,6 +2,7 @@ import { EmotionCard } from "@/components/EmotionCard";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
+import { LockscreenSettings } from "@/components/LockscreenSettings";
 import { BottomNav } from "@/components/BottomNav";
 import { Activity, Heart, Lock, BarChart3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -244,6 +245,11 @@ const Index = () => {
         {/* Pet Instagram - Share Tab */}
         {activeTab === "share" && <div className="mt-6">
             <PetInstagram posts={instagramPosts} />
+          </div>}
+
+        {/* Settings Tab */}
+        {activeTab === "settings" && <div className="mt-6">
+            <LockscreenSettings />
           </div>}
       </div>
       
