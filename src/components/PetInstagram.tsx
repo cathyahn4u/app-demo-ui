@@ -4,6 +4,8 @@ interface Post {
   id: number;
   imageUrl: string;
   caption: string;
+  quote: string;
+  petName: string;
   likes: number;
   timestamp: string;
   username: string;
@@ -82,6 +84,12 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
               </div>
               
               <p className="text-sm text-foreground mb-3">{post.caption}</p>
+              
+              {/* Pet Quote */}
+              <div className="bg-muted/30 rounded-lg p-3 mb-3 border-l-2 border-primary/40">
+                <p className="text-xs font-semibold text-foreground mb-1">{post.petName} says:</p>
+                <p className="text-sm text-muted-foreground italic">"{post.quote}"</p>
+              </div>
               
               {/* Health and Emotional State */}
               <div className="space-y-2 pt-2 border-t border-border/30">
