@@ -90,8 +90,11 @@ const MemeGenerator = () => {
       // Draw the uploaded image
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-      // Draw blurred bottom section
-      const blurHeight = 120;
+      // Draw blurred bottom section with gradual fade
+      const blurHeight = 180;
+      const gradientHeight = 60;
+      
+      // Draw fully blurred section
       ctx.filter = "blur(10px)";
       ctx.drawImage(
         img,
@@ -106,9 +109,18 @@ const MemeGenerator = () => {
       );
       ctx.filter = "none";
 
+      // Create gradient overlay for smooth transition
+      const gradient = ctx.createLinearGradient(0, canvas.height - blurHeight - gradientHeight, 0, canvas.height - blurHeight + 20);
+      gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+      gradient.addColorStop(0.5, "rgba(0, 0, 0, 0.15)");
+      gradient.addColorStop(1, "rgba(0, 0, 0, 0.3)");
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, canvas.height - blurHeight - gradientHeight, canvas.width, blurHeight + gradientHeight);
+      
       // Add semi-transparent overlay on bottom
-      ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-      ctx.fillRect(0, canvas.height - blurHeight, canvas.width, blurHeight);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+      ctx.fillRect(0, canvas.height - 120, canvas.width, 120);
 
       // Draw caption
       ctx.font = "bold 48px Arial";
@@ -147,7 +159,7 @@ const MemeGenerator = () => {
       ctx.font = "bold 32px Arial";
       ctx.textAlign = "right";
       ctx.fillStyle = "white";
-      ctx.fillText("🐕 Midnight", canvas.width - 30, canvas.height - 45);
+      ctx.fillText("🐈‍⬛ Midnight", canvas.width - 30, canvas.height - 45);
 
       // Draw PetLepathy logo and text (bottom left)
       ctx.textAlign = "left";
