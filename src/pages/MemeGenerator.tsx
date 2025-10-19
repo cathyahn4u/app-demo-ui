@@ -163,7 +163,8 @@ const MemeGenerator = () => {
 
       // Draw PetLepathy logo and text (bottom left)
       ctx.textAlign = "left";
-      ctx.fillText("🐾 PetLepathy", 30, canvas.height - 45);
+      ctx.font = "bold 28px Arial";
+      ctx.fillText("🐾 pet-lepathy.com/app-demo", 30, canvas.height - 45);
     };
     img.src = uploadedImage;
   };
@@ -189,35 +190,22 @@ const MemeGenerator = () => {
     });
   };
 
-  const handleShare = (platform: string) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const file = new File([blob], "meme.png", { type: "image/png" });
-        
-        if (navigator.share) {
-          navigator.share({
-            files: [file],
-            title: "Check out my PetLepathy meme!",
-            text: "Created with PetLepathy"
-          }).catch(() => {
-            toast({
-              title: "Share failed",
-              description: "Unable to share. Try downloading instead.",
-              variant: "destructive"
-            });
-          });
-        } else {
-          toast({
-            title: "Share not supported",
-            description: "Please download and share manually.",
-            variant: "destructive"
-          });
-        }
-      }
-    });
+  const handleShare = async () => {
+    const url = "https://pet-lepathy.com/app-demo/meme-generation";
+    
+    try {
+      await navigator.clipboard.writeText(url);
+      toast({
+        title: "Link copied!",
+        description: "Share this link so others can create their own pet memes."
+      });
+    } catch (error) {
+      toast({
+        title: "Failed to copy",
+        description: "Please copy the link manually: " + url,
+        variant: "destructive"
+      });
+    }
   };
 
   return (
@@ -361,7 +349,7 @@ const MemeGenerator = () => {
                   <Download className="w-4 h-4 mr-2" />
                   Download
                 </Button>
-                <Button onClick={() => handleShare("generic")} variant="outline">
+                <Button onClick={handleShare} variant="outline">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
                 </Button>
