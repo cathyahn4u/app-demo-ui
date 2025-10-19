@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Smartphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import blackCatCharacter from "@/assets/black-cat-character.png";
+import lockscreenPreview from "@/assets/lockscreen-preview.png";
 
 export const LockscreenSettings = () => {
   const { toast } = useToast();
@@ -38,67 +38,11 @@ export const LockscreenSettings = () => {
         <h3 className="text-lg font-semibold text-foreground mb-4">Preview</h3>
         
         <div className="flex justify-center">
-          <div className="relative w-[375px] h-[812px] bg-gradient-to-br from-purple-600 via-blue-500 to-purple-700 rounded-[40px] overflow-hidden shadow-2xl">
-            
-            {/* Small time at top left */}
-            <div className="absolute top-12 left-8 text-black font-semibold text-4xl">
-              9:41
-            </div>
-
-            {/* Widget Container - matching the reference exactly */}
-            <div className="absolute top-[170px] left-1/2 -translate-x-1/2 w-[340px] bg-black rounded-[28px] px-5 py-4 border border-black/50 shadow-xl">
-              <div className="flex items-center gap-3">
-                {/* Pet Character Icon */}
-                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
-                  <img 
-                    src={blackCatCharacter} 
-                    alt="Pet character" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Pet Info Section */}
-                <div className="flex-1 min-w-0">
-                  <div className="text-white text-base font-semibold mb-2">Shadow</div>
-                  
-                  {/* Health Bar */}
-                  <div className="mb-1.5">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-white text-xs font-medium w-12">Health</span>
-                      <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" style={{ width: '85%' }} />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Mood Bar */}
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-white text-xs font-medium w-12">Mood</span>
-                      <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full" style={{ width: '75%' }} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Activity Bars */}
-                <div className="flex gap-1 items-end h-12 ml-2">
-                  <div className="w-1 rounded-full bg-gradient-to-t from-green-400 to-green-300" style={{ height: '30%' }} />
-                  <div className="w-1 rounded-full bg-gradient-to-t from-blue-400 to-blue-300" style={{ height: '70%' }} />
-                  <div className="w-1 rounded-full bg-gradient-to-t from-purple-400 to-purple-300" style={{ height: '100%' }} />
-                  <div className="w-1 rounded-full bg-gradient-to-t from-pink-400 to-pink-300" style={{ height: '85%' }} />
-                  <div className="w-1 rounded-full bg-gradient-to-t from-yellow-400 to-yellow-300" style={{ height: '95%' }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Large time at bottom */}
-            <div className="absolute bottom-60 left-0 right-0 text-center">
-              <div className="text-white text-[120px] font-light leading-none mb-4">9:41</div>
-              <div className="text-white text-2xl font-medium">Monday, October 19</div>
-            </div>
-          </div>
+          <img 
+            src={lockscreenPreview} 
+            alt="Lockscreen widget preview" 
+            className="max-w-full h-auto rounded-xl shadow-2xl"
+          />
         </div>
       </Card>
 
