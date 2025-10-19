@@ -15,7 +15,7 @@ const Index = () => {
 
   // Mock data for demonstration
   const petData = {
-    name: "Buddy",
+    name: "Midnight",
     breed: "Golden Retriever",
     age: 5,
     weight: "30 kg",
@@ -65,10 +65,10 @@ const Index = () => {
     imageUrl: "/pet-photos/flower-field.jpeg",
     caption: "Running through a field of flowers! Living my best life 🌼✨",
     quote: "The flowers tickle my nose and I couldn't be happier. This is what freedom feels like!",
-    petName: "Buddy",
+    petName: "Midnight",
     likes: 342,
     timestamp: "3 minutes ago",
-    username: "@buddythegolden",
+    username: "@midnightthegolden",
     emoji: "🐕",
     healthLevel: 95,
     emotionalState: "Joyful",

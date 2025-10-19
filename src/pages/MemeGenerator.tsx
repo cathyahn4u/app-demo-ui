@@ -147,14 +147,10 @@ const MemeGenerator = () => {
       ctx.font = "bold 32px Arial";
       ctx.textAlign = "right";
       ctx.fillStyle = "white";
-      ctx.strokeStyle = "black";
-      ctx.lineWidth = 3;
-      ctx.strokeText("🐕 Buddy", canvas.width - 30, canvas.height - 45);
-      ctx.fillText("🐕 Buddy", canvas.width - 30, canvas.height - 45);
+      ctx.fillText("🐕 Midnight", canvas.width - 30, canvas.height - 45);
 
       // Draw PetLepathy logo and text (bottom left)
       ctx.textAlign = "left";
-      ctx.strokeText("🐾 PetLepathy", 30, canvas.height - 45);
       ctx.fillText("🐾 PetLepathy", 30, canvas.height - 45);
     };
     img.src = uploadedImage;

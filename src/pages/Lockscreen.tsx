@@ -50,7 +50,7 @@ const Lockscreen = () => {
         <div className="relative">
           <img 
             src={petStatus === 'sleeping' ? sleepingDog : activeDog}
-            alt="Buddy"
+            alt="Midnight"
             className={`w-64 h-64 object-contain transition-all duration-1000 ${
               petStatus === 'sleeping' 
                 ? 'animate-pulse' 
@@ -68,7 +68,7 @@ const Lockscreen = () => {
         {/* Status Badge */}
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 shadow-lg">
           <p className="text-white text-lg font-medium">
-            Buddy is {petStatus === 'sleeping' ? '😴 Sleeping' : '🎾 Playing'}
+            Midnight is {petStatus === 'sleeping' ? '😴 Sleeping' : '🎾 Playing'}
           </p>
         </div>
       </div>
