@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Smartphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import lockscreenPreview from "@/assets/lockscreen-preview.png";
+import lockscreenPreview from "@/assets/lockscreen-full-preview.png";
 
 export const LockscreenSettings = () => {
   const { toast } = useToast();
