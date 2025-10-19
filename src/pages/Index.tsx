@@ -200,7 +200,7 @@ const Index = () => {
                 <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
                   <h2 className="font-bold text-foreground mb-3 flex items-center justify-center gap-2 text-xl">
                     <Heart className="w-6 h-6 text-primary" />
-                    Generate your fur-riend's own avatar
+                    Generate your fur-riend&apos;s purrsonalized avatar
                   </h2>
                   <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">
                     The avatar will mirror how your fur-riend is feeling once connected to our hardware. 
