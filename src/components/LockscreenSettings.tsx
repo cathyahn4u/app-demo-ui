@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Download, Smartphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import lockscreenPreview from "@/assets/lockscreen-full-preview.png";
+import catNeutral from "@/assets/cat-neutral.mp4";
+import catSleepy from "@/assets/cat-sleepy.mp4";
+import catHappy from "@/assets/cat-happy.mp4";
+import catSick from "@/assets/cat-sick.mp4";
 
 export const LockscreenSettings = () => {
   const { toast } = useToast();
@@ -43,6 +47,62 @@ export const LockscreenSettings = () => {
             alt="Lockscreen widget preview" 
             className="max-w-full h-auto rounded-xl shadow-2xl"
           />
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-border/30">
+          <p className="text-sm font-semibold text-foreground mb-4 text-center">
+            🐾 Your pet avatar will mirror your pet's real-time health and emotional status
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="space-y-2">
+              <video 
+                src={catNeutral} 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg border border-border/50"
+              />
+              <p className="text-xs text-center text-muted-foreground font-medium">Neutral</p>
+            </div>
+            
+            <div className="space-y-2">
+              <video 
+                src={catSleepy} 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg border border-border/50"
+              />
+              <p className="text-xs text-center text-muted-foreground font-medium">Sleepy</p>
+            </div>
+            
+            <div className="space-y-2">
+              <video 
+                src={catHappy} 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg border border-border/50"
+              />
+              <p className="text-xs text-center text-muted-foreground font-medium">Happy</p>
+            </div>
+            
+            <div className="space-y-2">
+              <video 
+                src={catSick} 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full rounded-lg border border-border/50"
+              />
+              <p className="text-xs text-center text-muted-foreground font-medium">Sick/Unwell</p>
+            </div>
+          </div>
         </div>
       </Card>
 
