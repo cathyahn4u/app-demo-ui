@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Upload, Sparkles, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
-import blackCatAvatar from "@/assets/black-cat-character.png";
+import blackCatAvatarVideo from "@/assets/black-cat-avatar-video.mp4";
 
 interface AvatarGeneratorProps {
   onClose?: () => void;
@@ -40,7 +40,7 @@ export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
   const handleGenerateAvatar = () => {
     if (!selectedImage) return;
 
-    setGeneratedAvatar(blackCatAvatar);
+    setGeneratedAvatar(blackCatAvatarVideo);
     
     toast({
       title: "Avatar generated!",
@@ -132,9 +132,12 @@ export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
 
           <div className="border border-border rounded-lg p-8 text-center min-h-[300px] flex items-center justify-center bg-muted/20">
             {generatedAvatar ? (
-              <img 
+              <video 
                 src={generatedAvatar} 
-                alt="Generated avatar" 
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="max-h-64 mx-auto rounded-lg object-contain"
               />
             ) : (
@@ -150,7 +153,7 @@ export const AvatarGenerator = ({ onClose }: AvatarGeneratorProps) => {
                 onClick={() => {
                   const link = document.createElement('a');
                   link.href = generatedAvatar;
-                  link.download = 'pet-avatar.png';
+                  link.download = 'pet-avatar.mp4';
                   link.click();
                 }}
                 variant="outline"
