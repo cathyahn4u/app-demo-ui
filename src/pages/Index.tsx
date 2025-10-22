@@ -182,7 +182,7 @@ const Index = () => {
     {/* Top Banner */}
     <div className="bg-gradient-to-r from-purple-500 to-purple-600 py-3 px-4 text-center">
       <p className="text-white text-sm md:text-base">
-        Health/Emotion data is randomized for app.
+        Health/Emotion data is randomized for demo.
         <br />
         <a href="#" className="underline font-semibold hover:text-white/90 transition-colors">
           Support our Hardware Kickstarter!
