@@ -85,7 +85,9 @@ export const PetInstagram = ({ posts }: { posts: Post[] }) => {
                   <span>{post.timestamp}</span>
                 </div>
                 
-                <p className="text-sm text-foreground mb-3">{post.caption}</p>
+                <p className="text-sm text-foreground mb-3">
+                  <span className="font-semibold">{post.petName}</span>&apos;s owner: {post.caption}
+                </p>
                 
                 {/* Pet Quote */}
                 <div className="bg-muted/30 rounded-lg p-3 mb-3 border-l-2 border-primary/40">
