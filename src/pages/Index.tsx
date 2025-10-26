@@ -154,7 +154,7 @@ const Index = () => {
   }, {
     id: 8,
     imageUrl: "/pet-photos/cat-sink.jpeg",
-    caption: "The sink is the perfect throne. Cold, smooth, and it really confuses the humans.",
+    caption: "Why is he here instead of the $100 cat tower I bought? 🤦‍♀️",
     quote: "If I fits, I sits! Sink life chose me 😹",
     petName: "Socks",
     likes: 398,
