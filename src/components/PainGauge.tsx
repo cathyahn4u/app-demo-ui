@@ -15,21 +15,21 @@ const getPainLevel = (level: number) => {
     label: 'Low Risk',
     icon: CheckCircle,
     color: 'pain-low',
-    description: 'Your pet appears comfortable with minimal signs of discomfort'
+    description: "I'm feeling great! Everything's comfortable and I'm ready to play! 🐾"
   };
   if (level <= 70) return {
     status: 'medium',
     label: 'Moderate',
     icon: AlertCircle,
     color: 'pain-medium',
-    description: 'Some signs of discomfort detected, monitoring recommended'
+    description: "I'm okay, but something feels a bit off... Keep an eye on me? 💙"
   };
   return {
     status: 'high',
     label: 'High Risk',
     icon: AlertTriangle,
     color: 'pain-high',
-    description: 'Significant signs of pain detected, veterinary consultation advised'
+    description: "I'm not feeling so good... I could really use some help from the vet. 🏥"
   };
 };
 
@@ -80,7 +80,7 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
         />
         
         <div className="bg-muted/30 rounded-lg p-2">
-          <p className="text-xs text-muted-foreground mb-1">Assessment</p>
+          <p className="text-xs text-muted-foreground mb-1">How I'm Feeling</p>
           <p className="text-xs text-foreground leading-relaxed">
             {painInfo.description}
           </p>
