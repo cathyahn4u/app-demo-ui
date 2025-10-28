@@ -45,7 +45,8 @@ const MemeGenerator = () => {
         { id: 2, text: "Gotta get that pawfect angle." },
         { id: 3, text: "Trying to get that perfect selfie angle like..." },
         { id: 4, text: "Just trying to get a good pawtrait" },
-        { id: 5, text: "Hello world." }
+        { id: 5, text: "Hello world." },
+        { id: 6, text: "Vibes." }
       ];
       
       // Simulate API delay
