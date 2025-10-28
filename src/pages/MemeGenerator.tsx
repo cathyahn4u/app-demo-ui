@@ -346,8 +346,8 @@ const MemeGenerator = () => {
                   </label>
                   <input
                     type="range"
-                    min="10"
-                    max="40"
+                    min="5"
+                    max="90"
                     value={captionPosition.y}
                     onChange={(e) => setCaptionPosition({ ...captionPosition, y: parseInt(e.target.value) })}
                     className="w-full"
