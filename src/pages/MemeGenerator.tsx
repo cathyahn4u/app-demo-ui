@@ -132,7 +132,7 @@ const MemeGenerator = () => {
       ctx.fillRect(0, canvas.height - 120, canvas.width, 120);
 
       // Draw caption
-      ctx.font = "bold 60px Arial";
+      ctx.font = "bold 80px Arial";
       ctx.fillStyle = "white";
       ctx.strokeStyle = "black";
       ctx.lineWidth = 4;
