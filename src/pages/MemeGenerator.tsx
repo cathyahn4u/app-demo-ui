@@ -88,25 +88,32 @@ const MemeGenerator = () => {
       canvas.width = 1080;
       canvas.height = 1080;
 
-      // Draw the uploaded image
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // Calculate crop dimensions for center-cropping to 1:1
+      const imgWidth = img.naturalWidth;
+      const imgHeight = img.naturalHeight;
+      const minDim = Math.min(imgWidth, imgHeight);
+      
+      // Calculate crop position (centered)
+      const cropX = (imgWidth - minDim) / 2;
+      const cropY = (imgHeight - minDim) / 2;
+
+      // Draw the cropped image (center-cropped to square)
+      ctx.drawImage(
+        img,
+        cropX, cropY, minDim, minDim,  // Source: crop from center
+        0, 0, canvas.width, canvas.height  // Destination: fill canvas
+      );
 
       // Draw blurred bottom section with gradual fade
       const blurHeight = 180;
       const gradientHeight = 60;
       
-      // Draw fully blurred section
+      // Draw fully blurred section (also needs center-crop)
       ctx.filter = "blur(10px)";
       ctx.drawImage(
         img,
-        0,
-        canvas.height - blurHeight,
-        canvas.width,
-        blurHeight,
-        0,
-        canvas.height - blurHeight,
-        canvas.width,
-        blurHeight
+        cropX, cropY + (minDim - blurHeight), minDim, blurHeight,  // Source: bottom of cropped area
+        0, canvas.height - blurHeight, canvas.width, blurHeight  // Destination: bottom of canvas
       );
       ctx.filter = "none";
 
