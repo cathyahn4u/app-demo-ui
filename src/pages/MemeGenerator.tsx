@@ -131,7 +131,7 @@ const MemeGenerator = () => {
       ctx.fillRect(0, canvas.height - 120, canvas.width, 120);
 
       // Draw caption
-      ctx.font = "bold 48px Arial";
+      ctx.font = "bold 60px Arial";
       ctx.fillStyle = "white";
       ctx.strokeStyle = "black";
       ctx.lineWidth = 4;
@@ -167,7 +167,7 @@ const MemeGenerator = () => {
       ctx.font = "bold 32px Arial";
       ctx.textAlign = "right";
       ctx.fillStyle = "white";
-      ctx.fillText("🐈‍⬛ Midnight", canvas.width - 30, canvas.height - 45);
+      ctx.fillText("🐱 Marshmallow", canvas.width - 30, canvas.height - 45);
 
       // Draw PetLepathy logo and text (bottom left)
       const logo = new Image();
