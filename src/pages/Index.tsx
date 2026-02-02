@@ -200,7 +200,6 @@ const Index = () => {
                     Generate your fur-riend&apos;s purrsonalized avatar
                   </h2>
                   <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">The avatar will mirror how your fur-riend is feeling once connected to our hardware.
-
 Check how your furry love is doing right on your lockscreen and background widgets
 – keeping you close to their heart, always. 💕
                 <br /><br />
