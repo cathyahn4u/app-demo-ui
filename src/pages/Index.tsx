@@ -199,9 +199,9 @@ const Index = () => {
                     <Heart className="w-6 h-6 text-primary" />
                     Generate your fur-riend&apos;s purrsonalized avatar
                   </h2>
-                  <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">
-                    The avatar will mirror how your fur-riend is feeling once connected to our hardware.
-                    <br /><br />
+                  <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">The avatar will mirror how your fur-riend is feeling once connected to our hardware.
+Check how your furry love is doing right on your lockscreen and background widgets
+– keeping you close to their heart, always. 💕<br /><br />
                     Check how your furry love is doing right on your lockscreen and background widgets – keeping you close to their heart, always. 💕
                   </p>
                   <Button onClick={() => setShowAvatarGenerator(true)} variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">
