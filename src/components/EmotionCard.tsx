@@ -14,25 +14,25 @@ const emotionConfig = {
     icon: Heart,
     label: 'Happy',
     color: 'happy',
-    description: 'Your pet is content and joyful'
+    description: "I'm feeling amazing! Let's play! 🎾"
   },
   sad: {
     icon: Frown,
     label: 'Sad',
     color: 'sad',
-    description: 'Your pet seems low or withdrawn'
+    description: "I need extra cuddles today... 🥺"
   },
   anxious: {
     icon: Zap,
     label: 'Anxious',
     color: 'anxious',
-    description: 'Your pet appears stressed or worried'
+    description: "Something's making me nervous! 😰"
   },
   calm: {
     icon: Waves,
     label: 'Calm',
     color: 'calm',
-    description: 'Your pet is relaxed and peaceful'
+    description: "Just vibing and feeling zen~ 😌"
   }
 };
 
