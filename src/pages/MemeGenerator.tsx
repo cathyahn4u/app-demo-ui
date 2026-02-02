@@ -132,7 +132,7 @@ const MemeGenerator = () => {
       ctx.fillRect(0, canvas.height - 120, canvas.width, 120);
 
       // Draw caption
-      ctx.font = "bold 80px Arial";
+      ctx.font = "bold 80px Nunito, Arial";
       ctx.fillStyle = "white";
       ctx.strokeStyle = "black";
       ctx.lineWidth = 4;
@@ -165,7 +165,7 @@ const MemeGenerator = () => {
       });
 
       // Draw pet name and character (bottom right)
-      ctx.font = "bold 32px Arial";
+      ctx.font = "bold 32px Nunito, Arial";
       ctx.textAlign = "right";
       ctx.fillStyle = "white";
       ctx.fillText("🐶 Golden", canvas.width - 30, canvas.height - 45);
@@ -177,7 +177,7 @@ const MemeGenerator = () => {
         ctx.drawImage(logo, 30, canvas.height - 70, logoSize, logoSize);
         
         ctx.textAlign = "left";
-        ctx.font = "bold 28px Arial";
+        ctx.font = "bold 28px Nunito, Arial";
         ctx.fillText("PetLepathy", 75, canvas.height - 45);
       };
       logo.src = logoIcon;
