@@ -184,9 +184,7 @@ const Index = () => {
       <p className="text-white text-sm md:text-base">
         Health/Emotion data is randomized for demo.
         <br />
-        <a href="#" className="underline font-semibold hover:text-white/90 transition-colors">
-          Support our Hardware Kickstarter!
-        </a>
+        <a href="#" className="underline font-semibold hover:text-white/90 transition-colors">Want one? Jump on our Hardware presale.</a>
       </p>
     </div>
     
@@ -196,8 +194,7 @@ const Index = () => {
         {activeTab === "analyze" && <>
             {/* Avatar Generation Section */}
             <div className="mb-6">
-              {!showAvatarGenerator ? (
-                <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
+              {!showAvatarGenerator ? <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
                   <h2 className="font-bold text-foreground mb-3 flex items-center justify-center gap-2 text-xl">
                     <Heart className="w-6 h-6 text-primary" />
                     Generate your fur-riend&apos;s purrsonalized avatar
@@ -207,18 +204,10 @@ const Index = () => {
                     Check how your furry love is doing right on your lockscreen and background widgets – 
                     keeping you close to their heart, always. 💕
                   </p>
-                  <Button 
-                    onClick={() => setShowAvatarGenerator(true)}
-                    variant="default" 
-                    size="lg" 
-                    className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all"
-                  >
+                  <Button onClick={() => setShowAvatarGenerator(true)} variant="default" size="lg" className="bg-gradient-to-br from-[hsl(237,85%,73%)]/80 to-[hsl(175,89%,83%)]/80 hover:from-[hsl(237,85%,68%)]/90 hover:to-[hsl(175,89%,78%)]/90 text-primary-foreground rounded-full py-2 px-6 h-auto font-semibold shadow-lg backdrop-blur-xl border border-white/20 transition-all">
                     Generate Avatar
                   </Button>
-                </div>
-              ) : (
-                <AvatarGenerator onClose={() => setShowAvatarGenerator(false)} />
-              )}
+                </div> : <AvatarGenerator onClose={() => setShowAvatarGenerator(false)} />}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
