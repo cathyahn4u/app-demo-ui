@@ -11,8 +11,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 const Index = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("analyze");
   const [showAvatarGenerator, setShowAvatarGenerator] = useState(false);
+
+  const handleTabChange = (tab: string) => {
+    if (tab === "bedroom") {
+      navigate("/bedroom");
+      return;
+    }
+    setActiveTab(tab);
+  };
 
   // Mock data for demonstration
   const petData = {
