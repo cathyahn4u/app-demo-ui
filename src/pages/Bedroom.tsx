@@ -27,40 +27,38 @@ const Bedroom = () => {
         className="fixed inset-0 w-full h-full object-cover"
       />
 
-      <div className="relative z-10 flex flex-col items-center pt-12 pb-24 px-4 min-h-screen">
+      <div className="relative z-10 flex flex-col items-center pt-6 pb-24 px-6 min-h-screen">
         {/* Pain Detection */}
-        <div className="w-full max-w-md mb-6">
-          <h2 className="text-base font-bold text-white/80 flex items-center gap-2 mb-3 drop-shadow-lg">
-            <Activity className="w-4 h-4" />
+        <div className="w-full max-w-sm mb-4">
+          <h2 className="text-sm font-bold text-white/70 flex items-center gap-1.5 mb-2">
+            <Activity className="w-3.5 h-3.5" />
             Pain Detection
           </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-5">
-            <PainGauge painLevel={12} lastUpdated="Just now" />
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
+            <PainGauge painLevel={12} lastUpdated="just now" />
           </div>
         </div>
 
         {/* Emotional Analysis */}
-        <div className="w-full max-w-md mb-6">
-          <h2 className="text-base font-bold text-white/80 flex items-center gap-2 mb-3 drop-shadow-lg">
-            <Heart className="w-4 h-4" />
+        <div className="w-full max-w-sm mb-4">
+          <h2 className="text-sm font-bold text-white/70 flex items-center gap-1.5 mb-2">
+            <Heart className="w-3.5 h-3.5" />
             Emotional Analysis
           </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-4">
-            <div className="grid grid-cols-4 gap-2">
-              {emotionData.map((emotion, index) => (
-                <EmotionCard key={index} {...emotion} />
-              ))}
-            </div>
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
+            {emotionData.map((emotion, index) => (
+              <EmotionCard key={index} {...emotion} />
+            ))}
           </div>
         </div>
 
         {/* Recent Analysis */}
-        <div className="w-full max-w-md mb-6">
-          <h2 className="text-base font-bold text-white/80 flex items-center gap-2 mb-3 drop-shadow-lg">
-            <BarChart3 className="w-4 h-4" />
+        <div className="w-full max-w-sm mb-4">
+          <h2 className="text-sm font-bold text-white/70 flex items-center gap-1.5 mb-2">
+            <BarChart3 className="w-3.5 h-3.5" />
             Recent Analysis
           </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-4">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
             <RecentAnalysis entries={recentAnalysisData} />
           </div>
         </div>
