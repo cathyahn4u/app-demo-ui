@@ -1,7 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Clock, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 interface AnalysisEntry {
   timestamp: string;
@@ -14,65 +12,54 @@ interface RecentAnalysisProps {
   entries: AnalysisEntry[];
 }
 
-const getTrendIcon = (trend: string) => {
-  switch (trend) {
-    case 'up': return TrendingUp;
-    case 'down': return TrendingDown;
-    default: return Minus;
-  }
+const emotionEmojis: Record<string, string> = {
+  Happy: '😸', Playful: '🐾', Calm: '😌', Sad: '😿', Anxious: '😰',
 };
 
-const getTrendColor = (trend: string) => {
-  switch (trend) {
-    case 'up': return 'text-pain-high';
-    case 'down': return 'text-pain-low';
-    default: return 'text-muted-foreground';
-  }
+const trendConfig = {
+  up: { icon: TrendingUp, color: 'hsl(var(--pain-high))' },
+  down: { icon: TrendingDown, color: 'hsl(var(--pain-low))' },
+  stable: { icon: Minus, color: 'rgba(255,255,255,0.5)' },
 };
 
 export const RecentAnalysis = ({ entries }: RecentAnalysisProps) => {
+  const maxPain = Math.max(...entries.map(e => e.painLevel), 1);
+
   return (
-    <Card className="p-6 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 shadow-[--shadow-card]">
-      <div className="flex items-center gap-2 mb-4">
-        <Clock className="w-5 h-5 text-primary" />
-        <h3 className="text-lg font-semibold text-foreground">Recent Analysis</h3>
-      </div>
-      
-      <div className="space-y-3">
-        {entries.map((entry, index) => {
-          const TrendIcon = getTrendIcon(entry.trend);
-          const trendColor = getTrendColor(entry.trend);
-          
+    <div className="space-y-3">
+      {/* Mini bar chart */}
+      <div className="flex items-end justify-between gap-2 h-16 px-2">
+        {entries.map((entry, i) => {
+          const h = Math.max(8, (entry.painLevel / maxPain) * 56);
+          const tc = trendConfig[entry.trend];
           return (
-            <div 
-              key={index}
-              className="flex items-center justify-between p-3 rounded-lg bg-muted/20 hover:bg-muted/30 transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <div className="text-sm text-muted-foreground">
-                  {entry.timestamp}
-                </div>
-                <Badge variant="outline" className="text-xs">
-                  {entry.dominantEmotion}
-                </Badge>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-foreground">
-                  {entry.painLevel}%
-                </span>
-                <TrendIcon className={cn("w-4 h-4", trendColor)} />
-              </div>
+            <div key={i} className="flex-1 flex flex-col items-center gap-1">
+              <div
+                className="w-full max-w-[28px] rounded-t-md transition-all duration-500"
+                style={{
+                  height: `${h}px`,
+                  background: `linear-gradient(to top, ${tc.color}, ${tc.color}88)`,
+                  boxShadow: `0 0 8px ${tc.color}44`,
+                }}
+              />
             </div>
           );
         })}
       </div>
-      
+
+      {/* Timeline labels */}
+      <div className="flex justify-between gap-2 px-2">
+        {entries.map((entry, i) => (
+          <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
+            <span className="text-lg">{emotionEmojis[entry.dominantEmotion] || '🐾'}</span>
+            <span className="text-[9px] text-white/40 text-center leading-tight">{entry.timestamp}</span>
+          </div>
+        ))}
+      </div>
+
       {entries.length === 0 && (
-        <div className="text-center py-8">
-          <p className="text-muted-foreground text-sm">No recent analysis available</p>
-        </div>
+        <p className="text-center text-white/40 text-sm py-4">No data yet</p>
       )}
-    </Card>
+    </div>
   );
 };

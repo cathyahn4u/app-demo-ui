@@ -1,5 +1,3 @@
-import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { Heart, Frown, Zap, Waves } from "lucide-react";
 
@@ -10,70 +8,52 @@ interface EmotionCardProps {
 }
 
 const emotionConfig = {
-  happy: {
-    icon: Heart,
-    label: 'Happy',
-    color: 'happy',
-    description: "I'm feeling amazing! Let's play! 🎾"
-  },
-  sad: {
-    icon: Frown,
-    label: 'Sad',
-    color: 'sad',
-    description: "I need extra cuddles today... 🥺"
-  },
-  anxious: {
-    icon: Zap,
-    label: 'Anxious',
-    color: 'anxious',
-    description: "Something's making me nervous! 😰"
-  },
-  calm: {
-    icon: Waves,
-    label: 'Calm',
-    color: 'calm',
-    description: "Just vibing and feeling zen~ 😌"
-  }
+  happy: { icon: Heart, label: 'Happy', color: 'hsl(var(--happy))', emoji: '😸' },
+  sad: { icon: Frown, label: 'Sad', color: 'hsl(var(--sad))', emoji: '😿' },
+  anxious: { icon: Zap, label: 'Anxious', color: 'hsl(var(--anxious))', emoji: '😰' },
+  calm: { icon: Waves, label: 'Calm', color: 'hsl(var(--calm))', emoji: '😌' },
 };
 
 export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCardProps) => {
   const config = emotionConfig[emotion];
   const Icon = config.icon;
-  
+
+  // Mini bar height
+  const barHeight = Math.max(4, (confidence / 100) * 40);
+
   return (
-    <Card className={cn(
-      "p-4 transition-all duration-300 hover:scale-105 border border-border/50",
-      "bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm",
-      isActive && "ring-2 ring-primary/30 shadow-[--shadow-emotion]"
+    <div className={cn(
+      "flex flex-col items-center gap-2 p-3 rounded-2xl transition-all duration-300",
+      "backdrop-blur-md bg-white/5 border border-white/10",
+      isActive && "bg-white/15 border-white/25 shadow-lg"
     )}>
-      <div className="flex items-center gap-3 mb-3">
-        <div className={cn(
-          "p-2 rounded-lg",
-          `bg-${config.color}/10 text-${config.color}`
-        )}>
-          <Icon className="w-5 h-5" />
-        </div>
-        <div className="flex-1">
-          <h3 className="font-semibold text-sm text-foreground">{config.label}</h3>
-          <p className="text-xs text-muted-foreground leading-tight">
-            {config.description}
-          </p>
-        </div>
+      {/* Emoji + icon */}
+      <span className="text-2xl">{config.emoji}</span>
+
+      {/* Label */}
+      <span className="text-xs font-semibold text-white/90">{config.label}</span>
+
+      {/* Mini confidence bar */}
+      <div className="w-full flex items-end justify-center gap-[2px] h-10">
+        {[...Array(5)].map((_, i) => {
+          const segHeight = Math.min(40, barHeight + (i === 2 ? 8 : i % 2 === 0 ? 4 : 0));
+          const isLit = (i + 1) * 20 <= confidence + 10;
+          return (
+            <div
+              key={i}
+              className="w-[6px] rounded-full transition-all duration-500"
+              style={{
+                height: `${isLit ? segHeight : 4}px`,
+                backgroundColor: isLit ? config.color : 'rgba(255,255,255,0.1)',
+                boxShadow: isLit ? `0 0 6px ${config.color}` : 'none',
+              }}
+            />
+          );
+        })}
       </div>
-      
-      <div className="space-y-2">
-        <div className="flex justify-between items-center">
-          <span className="text-xs text-muted-foreground">Confidence</span>
-          <span className="text-sm font-medium text-foreground">{confidence}%</span>
-        </div>
-        <Progress 
-          value={confidence} 
-          className={cn(
-            "h-2",
-            `[&>div]:bg-${config.color}`
-          )}
-        />
-      </div>
-    </Card>
+
+      {/* Percentage */}
+      <span className="text-lg font-bold text-white">{confidence}%</span>
+    </div>
   );
 };
