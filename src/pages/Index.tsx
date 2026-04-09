@@ -1,4 +1,5 @@
 import { EmotionCard } from "@/components/EmotionCard";
+import { useNavigate } from "react-router-dom";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
