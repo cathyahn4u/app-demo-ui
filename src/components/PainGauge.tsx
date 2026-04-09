@@ -1,8 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Badge } from "@/components/ui/badge";
-import { AlertTriangle, CheckCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CheckCircle, AlertCircle, AlertTriangle } from "lucide-react";
 
 interface PainGaugeProps {
   painLevel: number; // 0-100
@@ -11,85 +8,81 @@ interface PainGaugeProps {
 
 const getPainLevel = (level: number) => {
   if (level <= 30) return {
-    status: 'low',
-    label: 'Low Risk',
+    label: 'Low',
     icon: CheckCircle,
-    color: 'pain-low',
-    description: "I'm feeling great! Everything's comfortable and I'm ready to play! 🐾"
+    color: 'hsl(var(--pain-low))',
+    emoji: '😸',
   };
   if (level <= 70) return {
-    status: 'medium',
     label: 'Moderate',
     icon: AlertCircle,
-    color: 'pain-medium',
-    description: "I'm okay, but something feels a bit off... Keep an eye on me? 💙"
+    color: 'hsl(var(--pain-medium))',
+    emoji: '😿',
   };
   return {
-    status: 'high',
-    label: 'High Risk',
+    label: 'High',
     icon: AlertTriangle,
-    color: 'pain-high',
-    description: "I'm not feeling so good... I could really use some help from the vet. 🏥"
+    color: 'hsl(var(--pain-high))',
+    emoji: '🙀',
   };
 };
 
 export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
   const painInfo = getPainLevel(painLevel);
-  const Icon = painInfo.icon;
+  
+  // SVG circular gauge
+  const radius = 54;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (painLevel / 100) * circumference;
   
   return (
-    <Card className="p-4 bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-sm border border-border/50 shadow-[--shadow-card]">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-base font-semibold text-foreground">Pain Analysis</h3>
-        <Badge 
-          variant="outline" 
-          className={cn(
-            "border-current text-xs",
-            `text-${painInfo.color} border-${painInfo.color}/30`
-          )}
-        >
-          {painInfo.label}
-        </Badge>
-      </div>
-      
-      <div className="flex items-center gap-4 mb-4">
-        <div className={cn(
-          "flex items-center justify-center w-12 h-12 rounded-full",
-          `bg-${painInfo.color}/10 text-${painInfo.color}`
-        )}>
-          <Icon className="w-5 h-5" />
+    <div className="flex flex-col items-center gap-3">
+      {/* Circular Gauge */}
+      <div className="relative w-36 h-36">
+        <svg className="w-full h-full -rotate-90" viewBox="0 0 128 128">
+          {/* Background circle */}
+          <circle
+            cx="64"
+            cy="64"
+            r={radius}
+            fill="none"
+            stroke="white"
+            strokeOpacity="0.1"
+            strokeWidth="10"
+            strokeLinecap="round"
+          />
+          {/* Progress arc */}
+          <circle
+            cx="64"
+            cy="64"
+            r={radius}
+            fill="none"
+            stroke={painInfo.color}
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            className="transition-all duration-700 ease-out"
+            style={{ filter: `drop-shadow(0 0 6px ${painInfo.color})` }}
+          />
+        </svg>
+        {/* Center content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-3xl">{painInfo.emoji}</span>
+          <span className="text-2xl font-bold text-white">{painLevel}%</span>
         </div>
-        
-        <div className="flex-1">
-          <div className="text-2xl font-bold text-foreground">
-            {painLevel}%
-          </div>
-          <p className="text-xs text-muted-foreground">
-            Pain Probability
-          </p>
-        </div>
       </div>
-      
-      <div className="space-y-3">
-        <Progress 
-          value={painLevel} 
-          className={cn(
-            "h-2",
-            `[&>div]:bg-gradient-to-r [&>div]:from-${painInfo.color} [&>div]:to-${painInfo.color}/80`
-          )}
+
+      {/* Label row */}
+      <div className="flex items-center gap-2">
+        <div
+          className="w-2 h-2 rounded-full"
+          style={{ backgroundColor: painInfo.color, boxShadow: `0 0 8px ${painInfo.color}` }}
         />
-        
-        <div className="bg-muted/30 rounded-lg p-2">
-          <p className="text-xs text-muted-foreground mb-1">How I'm Feeling</p>
-          <p className="text-xs text-foreground leading-relaxed">
-            {painInfo.description}
-          </p>
-        </div>
-        
-        <p className="text-xs text-muted-foreground text-center">
-          Last updated: {lastUpdated}
-        </p>
+        <span className="text-sm font-semibold text-white/90">{painInfo.label} Risk</span>
       </div>
-    </Card>
+
+      <p className="text-[10px] text-white/40">Updated {lastUpdated}</p>
+    </div>
   );
 };
