@@ -1,4 +1,5 @@
 import { EmotionCard } from "@/components/EmotionCard";
+import { useNavigate } from "react-router-dom";
 import { PainGauge } from "@/components/PainGauge";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
 import { PetInstagram } from "@/components/PetInstagram";
@@ -10,8 +11,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 const Index = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("analyze");
   const [showAvatarGenerator, setShowAvatarGenerator] = useState(false);
+
+  const handleTabChange = (tab: string) => {
+    if (tab === "bedroom") {
+      navigate("/bedroom");
+      return;
+    }
+    setActiveTab(tab);
+  };
 
   // Mock data for demonstration
   const petData = {
@@ -253,7 +263,7 @@ const Index = () => {
           </div>}
       </div>
       
-      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} />
     </div>
   </>;
 };

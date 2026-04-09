@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Lockscreen from "./pages/Lockscreen";
 import MemeGenerator from "./pages/MemeGenerator";
+import Bedroom from "./pages/Bedroom";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/lockscreen" element={<Lockscreen />} />
           <Route path="/meme-generator" element={<MemeGenerator />} />
+          <Route path="/bedroom" element={<Bedroom />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
