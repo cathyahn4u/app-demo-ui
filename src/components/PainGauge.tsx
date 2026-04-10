@@ -18,6 +18,7 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
 
   return (
     <div className="flex flex-col items-center gap-1 flex-shrink-0">
+      <span className="text-[9px] font-medium text-white/50 uppercase tracking-wider">Pain Prob.</span>
       <div className="relative">
         <svg width={size} height={size} className="transform -rotate-90">
           <circle
