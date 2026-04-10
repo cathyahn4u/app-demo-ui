@@ -2,7 +2,7 @@ import bedroomBg from "@/assets/bedroom-bg.png";
 import { PainGauge } from "@/components/PainGauge";
 import { EmotionCard } from "@/components/EmotionCard";
 import { RecentAnalysis } from "@/components/RecentAnalysis";
-import { Activity, Heart, BarChart3 } from "lucide-react";
+import { Activity, BarChart3 } from "lucide-react";
 
 const Bedroom = () => {
   const emotionData = [
@@ -28,39 +28,31 @@ const Bedroom = () => {
       />
 
       <div className="relative z-10 flex flex-col items-center pt-6 pb-24 px-6 min-h-screen">
-        {/* Pain Detection */}
-        <div className="w-full max-w-sm mb-3">
-          <h2 className="text-xs font-bold text-white/60 flex items-center gap-1.5 mb-1.5">
-            <Activity className="w-3 h-3" />
-            Pain Detection
+        {/* Health & Emotion Status */}
+        <div className="w-full max-w-sm mb-4">
+          <h2 className="text-sm font-bold text-white/60 flex items-center gap-2 mb-2">
+            <Activity className="w-4 h-4" />
+            Health & Emotion
           </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-3">
-            <PainGauge painLevel={12} lastUpdated="just now" />
-          </div>
-        </div>
-
-        {/* Emotional Analysis */}
-        <div className="w-full max-w-sm mb-3">
-          <h2 className="text-xs font-bold text-white/60 flex items-center gap-1.5 mb-1.5">
-            <Heart className="w-3 h-3" />
-            Emotional Analysis
-          </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-2">
-            <div className="grid grid-cols-4 gap-1">
-              {emotionData.map((emotion, index) => (
-                <EmotionCard key={index} {...emotion} />
-              ))}
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
+            <div className="flex items-center gap-4">
+              <PainGauge painLevel={12} lastUpdated="just now" />
+              <div className="flex-1 grid grid-cols-4 gap-1.5">
+                {emotionData.map((emotion, index) => (
+                  <EmotionCard key={index} {...emotion} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Recent Analysis */}
-        <div className="w-full max-w-sm mb-3">
-          <h2 className="text-xs font-bold text-white/60 flex items-center gap-1.5 mb-1.5">
-            <BarChart3 className="w-3 h-3" />
+        <div className="w-full max-w-sm mb-4">
+          <h2 className="text-sm font-bold text-white/60 flex items-center gap-2 mb-2">
+            <BarChart3 className="w-4 h-4" />
             Recent Analysis
           </h2>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-3">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
             <RecentAnalysis entries={recentAnalysisData} />
           </div>
         </div>
