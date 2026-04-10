@@ -24,8 +24,8 @@ export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCa
       <span className="text-2xl">{config.emoji}</span>
       <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
         <div
-          className={cn("h-full rounded-full transition-all duration-500", config.color)}
-          style={{ width: `${confidence}%`, opacity: 0.8 }}
+          className="h-full rounded-full transition-all duration-500"
+          style={{ width: `${confidence}%`, opacity: 0.8, backgroundColor: config.color }}
         />
       </div>
       <span className="text-xs text-white/50 font-medium">{confidence}%</span>
