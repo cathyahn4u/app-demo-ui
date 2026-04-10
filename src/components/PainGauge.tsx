@@ -13,7 +13,7 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
   const center = radius + stroke;
   const size = (radius + stroke) * 2;
 
-  const color = painLevel <= 30 ? '#4ade80' : painLevel <= 70 ? '#facc15' : '#f87171';
+  const color = painLevel <= 30 ? '#A6B8E7' : painLevel <= 70 ? '#BAB0AD' : '#75615C';
   const emoji = painLevel <= 30 ? '😌' : painLevel <= 70 ? '😐' : '😣';
 
   return (

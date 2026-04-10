@@ -7,10 +7,10 @@ interface EmotionCardProps {
 }
 
 const emotionConfig = {
-  happy: { emoji: '😊', color: 'bg-green-400' },
-  sad: { emoji: '😢', color: 'bg-blue-400' },
-  anxious: { emoji: '😰', color: 'bg-yellow-400' },
-  calm: { emoji: '😌', color: 'bg-cyan-400' },
+  happy: { emoji: '😊', color: '#A6B8E7' },
+  sad: { emoji: '😢', color: '#75615C' },
+  anxious: { emoji: '😰', color: '#75615C' },
+  calm: { emoji: '😌', color: '#BAB0AD' },
 };
 
 export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCardProps) => {
@@ -24,8 +24,8 @@ export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCa
       <span className="text-2xl">{config.emoji}</span>
       <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
         <div
-          className={cn("h-full rounded-full transition-all duration-500", config.color)}
-          style={{ width: `${confidence}%`, opacity: 0.8 }}
+          className="h-full rounded-full transition-all duration-500"
+          style={{ width: `${confidence}%`, opacity: 0.8, backgroundColor: config.color }}
         />
       </div>
       <span className="text-xs text-white/50 font-medium">{confidence}%</span>

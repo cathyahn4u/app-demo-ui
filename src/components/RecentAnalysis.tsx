@@ -11,12 +11,18 @@ interface RecentAnalysisProps {
   entries: AnalysisEntry[];
 }
 
+const getStatusColor = (painLevel: number) => {
+  if (painLevel <= 10) return '#A6B8E7'; // good
+  if (painLevel <= 20) return '#BAB0AD'; // neutral
+  return '#75615C'; // unwell
+};
+
 export const RecentAnalysis = ({ entries }: RecentAnalysisProps) => {
   const maxPain = Math.max(...entries.map(e => e.painLevel), 1);
   const points = entries.map((e, i) => {
     const x = (i / (entries.length - 1)) * 200;
     const y = 40 - (e.painLevel / maxPain) * 32;
-    return { x, y, entry: e };
+    return { x, y, entry: e, color: getStatusColor(e.painLevel) };
   });
 
   const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
@@ -27,8 +33,8 @@ export const RecentAnalysis = ({ entries }: RecentAnalysisProps) => {
       <svg viewBox="-4 -2 208 52" className="w-full h-16">
         <defs>
           <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(96,165,250,0.3)" />
-            <stop offset="100%" stopColor="rgba(96,165,250,0)" />
+            <stop offset="0%" stopColor="rgba(166,184,231,0.25)" />
+            <stop offset="100%" stopColor="rgba(166,184,231,0)" />
           </linearGradient>
         </defs>
         {[0, 1, 2].map(i => (
@@ -36,9 +42,9 @@ export const RecentAnalysis = ({ entries }: RecentAnalysisProps) => {
             stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
         ))}
         <path d={areaPath} fill="url(#areaGrad)" />
-        <path d={linePath} fill="none" stroke="rgba(96,165,250,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={linePath} fill="none" stroke="rgba(186,176,173,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         {points.map((p, i) => (
-          <circle key={i} cx={p.x} cy={p.y} r="3" fill="#60a5fa" stroke="rgba(0,0,0,0.3)" strokeWidth="0.5" />
+          <circle key={i} cx={p.x} cy={p.y} r="4" fill={p.color} stroke="rgba(0,0,0,0.3)" strokeWidth="0.5" />
         ))}
       </svg>
       <div className="flex justify-between px-1">
