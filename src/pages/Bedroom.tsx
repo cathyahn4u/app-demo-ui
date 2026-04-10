@@ -27,11 +27,11 @@ const Bedroom = () => {
         className="fixed inset-0 w-full h-full object-cover"
       />
 
-      <div className="relative z-10 flex flex-col items-center pt-6 pb-24 px-6 min-h-screen">
+      <div className="relative z-10 flex flex-col items-center pt-[10vh] pb-24 px-6 min-h-screen">
         {/* Health & Emotion Status */}
         <div className="w-full max-w-sm mb-4">
-          <h2 className="text-sm font-bold text-white/60 flex items-center gap-2 mb-2">
-            <Activity className="w-4 h-4" />
+          <h2 className="text-base font-bold text-white/60 flex items-center gap-2 mb-2">
+            <Activity className="w-5 h-5" />
             Health & Emotion
           </h2>
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
@@ -48,8 +48,8 @@ const Bedroom = () => {
 
         {/* Recent Analysis */}
         <div className="w-full max-w-sm mb-4">
-          <h2 className="text-sm font-bold text-white/60 flex items-center gap-2 mb-2">
-            <BarChart3 className="w-4 h-4" />
+          <h2 className="text-base font-bold text-white/60 flex items-center gap-2 mb-2">
+            <BarChart3 className="w-5 h-5" />
             Recent Analysis
           </h2>
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4">
