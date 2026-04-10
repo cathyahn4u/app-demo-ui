@@ -7,10 +7,10 @@ interface EmotionCardProps {
 }
 
 const emotionConfig = {
-  happy: { emoji: '😊', color: 'bg-green-400' },
-  sad: { emoji: '😢', color: 'bg-blue-400' },
-  anxious: { emoji: '😰', color: 'bg-yellow-400' },
-  calm: { emoji: '😌', color: 'bg-cyan-400' },
+  happy: { emoji: '😊', color: '#A6B8E7' },
+  sad: { emoji: '😢', color: '#75615C' },
+  anxious: { emoji: '😰', color: '#75615C' },
+  calm: { emoji: '😌', color: '#BAB0AD' },
 };
 
 export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCardProps) => {
