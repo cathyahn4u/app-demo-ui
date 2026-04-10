@@ -7,21 +7,28 @@ interface EmotionCardProps {
 }
 
 const emotionConfig = {
-  happy: { label: 'Happy', description: "You know, it has been always lovely to be with you. 🥰" },
-  sad: { label: 'Sad', description: "I need extra cuddles today... can you stay? 🥺" },
-  anxious: { label: 'Anxious', description: "Something's making me a bit nervous... 😰" },
-  calm: { label: 'Calm', description: "Just vibing here, life is good~ 😌" },
+  happy: { emoji: '😊', color: 'bg-green-400' },
+  sad: { emoji: '😢', color: 'bg-blue-400' },
+  anxious: { emoji: '😰', color: 'bg-yellow-400' },
+  calm: { emoji: '😌', color: 'bg-cyan-400' },
 };
 
 export const EmotionCard = ({ emotion, confidence, isActive = false }: EmotionCardProps) => {
   const config = emotionConfig[emotion];
 
-  if (!isActive) return null;
-
   return (
-    <div className="space-y-1">
-      <p className="text-xs font-semibold text-white/60">{config.label}</p>
-      <p className="text-sm text-white/80 leading-relaxed">{config.description}</p>
+    <div className={cn(
+      "flex flex-col items-center gap-1.5 p-2 rounded-lg",
+      isActive && "bg-white/10"
+    )}>
+      <span className="text-xl">{config.emoji}</span>
+      <div className="w-full h-1 rounded-full bg-white/10 overflow-hidden">
+        <div
+          className={cn("h-full rounded-full transition-all duration-500", config.color)}
+          style={{ width: `${confidence}%`, opacity: 0.8 }}
+        />
+      </div>
+      <span className="text-[10px] text-white/50 font-medium">{confidence}%</span>
     </div>
   );
 };
