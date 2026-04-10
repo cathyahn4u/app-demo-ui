@@ -17,8 +17,8 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
   const emoji = painLevel <= 30 ? '😌' : painLevel <= 70 ? '😐' : '😣';
 
   return (
-    <div className="flex items-center gap-4">
-      <div className="relative flex-shrink-0">
+    <div className="flex flex-col items-center gap-1 flex-shrink-0">
+      <div className="relative">
         <svg width={size} height={size} className="transform -rotate-90">
           <circle
             cx={center} cy={center} r={radius}
@@ -34,13 +34,10 @@ export const PainGauge = ({ painLevel, lastUpdated }: PainGaugeProps) => {
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-lg font-bold text-white">{painLevel}%</span>
+          <span className="text-xl font-bold text-white">{painLevel}%</span>
         </div>
       </div>
-      <div className="flex flex-col gap-1">
-        <span className="text-2xl">{emoji}</span>
-        <span className="text-[10px] text-white/30">{lastUpdated}</span>
-      </div>
+      <span className="text-xs text-white/40">{lastUpdated}</span>
     </div>
   );
 };
